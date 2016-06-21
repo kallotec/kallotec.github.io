@@ -1,0 +1,69 @@
+---
+layout: raw
+---
+
+<div class="page-header-splash text-center gol">
+  <img src="/assets/images/avatar.jpg" class="avatar" />
+  <h1>James H.</h1>
+  <h4 class="text-muted">
+    Full stack software engineer @ <a href="http://rcsworks.com" target="_blank">RCS</a><br/>
+    Christchurch, NZ
+  </h4>
+  <p class="social-bar">
+
+    <a href="http://twitter.com/{{ site.twitter }}" target="_blank">
+      <img src="/assets/images/icons/noborder/twitter.png">
+    </a>
+    <a href="http://github.com/{{ site.github }}" target="_blank">
+      <img src="/assets/images/icons/noborder/github.png">
+    </a>
+    <a href="http://stackoverflow.com/users/{{ site.stackoverflow }}" target="_blank">
+      <img src="/assets/images/icons/noborder/stackoverflow.png">
+    </a>
+    <a href="http://linkedin.com/in/{{ site.linkedin }}" target="_blank">
+      <img src="/assets/images/icons/noborder/linkedin.png">
+    </a>
+  </p>
+</div>
+
+<div class="container">
+
+  <h3><span class="glyphicon glyphicon-wrench"></span> Recent Projects <small><a href="/projects">View all</a></small></h3>
+
+  <div class="cards">
+    <div class="row">
+      {% for project in site.data.projects limit:3 %}
+
+        <div class="col-sm-6 col-md-4">
+           <div class="card">
+               <p><a class="url" href="{{ project.url }}" target="_blank">{{ project.name }}</a></p>
+               <p>{{ project.desc }}</p>
+               <p class="text-muted">{{ project.tech }}</p>
+           </div>
+        </div>
+
+      {% endfor %}
+    </div>
+
+  </div>
+
+
+  <h3><span class="glyphicon glyphicon-pencil"></span> Recent Posts <small><a href="/posts">View all</a></small></h3>
+
+  <div class="cards">
+    <div class="row">
+      {% for post in site.posts limit:3 %}
+
+        <div class="col-sm-6 col-md-4">
+          <div class="card">
+              <p><a class="url" href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a></p>
+              <p class="text-muted">{{ post.date | date_to_string }}</p>
+          </div>
+        </div>
+
+      {% endfor %}
+    </div>
+
+  </div>
+
+</div>
