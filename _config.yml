@@ -8,6 +8,7 @@
 # Site settings
 title: KALLOTEC
 description: Full stack software engineer
+host: 0.0.0.0
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://kallotec.io" # the base hostname & protocol for your site
 twitter: kallotec
