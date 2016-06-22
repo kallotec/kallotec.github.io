@@ -4,8 +4,7 @@ MAINTAINER @kallotec
 RUN apt-get update \
   && apt-get install -y \
     node \
-  && apt-get clean \
-  && rm -rf /var/lib/apt/lists/
+  && apt-get clean
 
 ADD . /src
 WORKDIR /src
