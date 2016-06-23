@@ -15,3 +15,4 @@ EXPOSE 80
 EXPOSE 4000
 
 ENTRYPOINT ["jekyll", "s"]
+CMD ["-P 80"]
