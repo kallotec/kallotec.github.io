@@ -1,0 +1,61 @@
+
+        body {
+            background-color: #eee;
+            margin: 0px;
+            padding: 0px;
+        }
+
+        #headerWrapper {
+            border: 1px solid gray;
+            float:left;
+            position:absolute;
+            background-color: #eee;
+        }
+
+        #header {
+            display: inline-block;
+            background-color: #eee;
+            padding: 5px;
+        }
+        #header h1 {
+            font-size: 1.1em;
+            vertical-align: middle;
+            margin: 2px 2px -2px 2px;
+        }
+        #header h1 a {
+            color: darkorange;
+            background-color: #ddd;
+            padding: 0px 6px;
+            text-decoration: none;
+            border: 1px solid #aaa;
+        }
+
+
+        #menu {
+            cursor: pointer;
+            vertical-align: middle;
+        }
+
+        #controls {
+            padding: 4px;
+            vertical-align: bottom;
+            background: #eee;
+        }
+
+        #moreControls {
+            background-color: white;
+            padding: 4px;
+            display: none;
+        }
+        #moreControls > div {
+            padding: 4px;
+            height: 35px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        #drawingSurface {
+            border: 1px solid #ccc;
+        }

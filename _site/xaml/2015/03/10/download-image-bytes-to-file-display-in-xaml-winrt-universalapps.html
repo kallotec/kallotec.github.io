@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>How to: download image, save as file, read file, display in XAML</title>
+  <meta name="description" content="I’m currently implementing a caching layer in a Universal App that needs to cache images, and I had a difficult time finding any good complete examples demon...">
+
+  <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="canonical" href="http://kallotec.io/xaml/2015/03/10/download-image-bytes-to-file-display-in-xaml-winrt-universalapps.html">
+  <link rel="alternate" type="application/rss+xml" title="KALLOTEC" href="http://kallotec.io/feed.xml">
+</head>
+
+  <body>
+
+    <header>
+
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#jb-navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">
+          <!-- <img id="logo-avatar" src="/assets/images/avatar.jpg" /> -->
+          KALLOTEC
+        </a>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="jb-navbar-collapse">
+
+        <ul class="nav navbar-nav navbar-right">
+          
+            
+          
+            
+          
+            
+              <li><a class="page-link" href="/posts/">Posts</a></li>
+            
+          
+            
+              <li><a class="page-link" href="/projects/">Projects</a></li>
+            
+          
+        </ul>
+
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container -->
+  </nav>
+</header>
+
+
+    <div>
+      <div class="page-header text-center">
+
+  <h1>How to: download image, save as file, read file, display in XAML </h1>
+
+  <div class="text-muted">
+    <span>10 March 2015</span>
+  </div>
+
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="content">
+        <p>I’m currently implementing a caching layer in a Universal App that needs to cache images, and I had a difficult time finding any good complete examples demonstrating this only some very spread out bits of advice, so I’m posting a stripped down solution I’m using here to hopefully help the next person!</p>
+
+<p>My requirements were</p>
+
+<ul>
+  <li>Download arbitrary images via http</li>
+  <li>Save image to file</li>
+  <li>Read image from file</li>
+  <li>Needs to handle arbitrary image dimensions (image will be of unknown width/height)</li>
+  <li>Display image in UI, either inside XAML or inside an HTML <img /> tag</li>
+</ul>
+
+<p>NOTE: For this to work it required writing bytes to the file not strings, so storage of the file had to be binary. Writing bytes as strings didn’t seem to work.</p>
+
+<p>I’ve stripped down my solution into a sample method. Here are the individual parts…</p>
+
+<h2 id="get-http-image-as-byte">Get Http Image As Byte[]</h2>
+<p>(there’s probably a shorter way to accomplish this)</p>
+
+<figure class="highlight"><pre><code class="language-c#" data-lang="c#"> <span class="k">async</span> <span class="n">Task</span><span class="p">&lt;</span><span class="kt">byte</span><span class="p">[</span><span class="k">]&gt;</span> <span class="nf">getHttpAsBytesAsync</span><span class="p">(</span><span class="kt">string</span> <span class="n">url</span><span class="p">)</span>
+ <span class="p">{</span>
+  <span class="c1">//build request
+</span>  <span class="kt">var</span> <span class="n">request</span> <span class="p">=</span> <span class="n">WebRequest</span><span class="p">.</span><span class="nf">CreateHttp</span><span class="p">(</span><span class="n">url</span><span class="p">);</span>
+  <span class="n">request</span><span class="p">.</span><span class="n">UseDefaultCredentials</span> <span class="p">=</span> <span class="k">true</span><span class="p">;</span>
+  <span class="kt">byte</span><span class="p">[]</span> <span class="n">bytes</span><span class="p">;</span>
+
+  <span class="c1">//get response
+</span>  <span class="kt">var</span> <span class="n">response</span> <span class="p">=</span> <span class="k">await</span> <span class="n">request</span><span class="p">.</span><span class="nf">GetResponseAsync</span><span class="p">();</span>
+  <span class="k">using</span> <span class="p">(</span><span class="kt">var</span> <span class="n">br</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">BinaryReader</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="nf">GetResponseStream</span><span class="p">()))</span>
+  <span class="p">{</span>
+   <span class="k">using</span> <span class="p">(</span><span class="kt">var</span> <span class="n">ms</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">MemoryStream</span><span class="p">())</span>
+   <span class="p">{</span>
+    <span class="kt">var</span> <span class="n">lineBuffer</span> <span class="p">=</span> <span class="n">br</span><span class="p">.</span><span class="nf">ReadBytes</span><span class="p">(</span><span class="m">1024</span><span class="p">);</span>
+
+    <span class="k">while</span> <span class="p">(</span><span class="n">lineBuffer</span><span class="p">.</span><span class="n">Length</span> <span class="p">&gt;</span> <span class="m">0</span><span class="p">)</span>
+    <span class="p">{</span>
+     <span class="n">ms</span><span class="p">.</span><span class="nf">Write</span><span class="p">(</span><span class="n">lineBuffer</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="n">lineBuffer</span><span class="p">.</span><span class="n">Length</span><span class="p">);</span>
+     <span class="n">lineBuffer</span> <span class="p">=</span> <span class="n">br</span><span class="p">.</span><span class="nf">ReadBytes</span><span class="p">(</span><span class="m">1024</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="n">bytes</span> <span class="p">=</span> <span class="k">new</span> <span class="kt">byte</span><span class="p">[(</span><span class="kt">int</span><span class="p">)</span><span class="n">ms</span><span class="p">.</span><span class="n">Length</span><span class="p">];</span>
+    <span class="n">ms</span><span class="p">.</span><span class="n">Position</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span>
+    <span class="n">ms</span><span class="p">.</span><span class="nf">Read</span><span class="p">(</span><span class="n">bytes</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="n">bytes</span><span class="p">.</span><span class="n">Length</span><span class="p">);</span>
+   <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="k">return</span> <span class="n">bytes</span><span class="p">;</span>
+ <span class="p">}</span></code></pre></figure>
+
+<h2 id="save-image-byte-to-file">Save Image Byte[] To File</h2>
+
+<figure class="highlight"><pre><code class="language-c#" data-lang="c#"> <span class="k">async</span> <span class="n">Task</span> <span class="nf">saveBytesToFileAsync</span><span class="p">(</span><span class="n">StorageFolder</span> <span class="n">folder</span><span class="p">,</span> <span class="kt">string</span> <span class="n">filename</span><span class="p">,</span> <span class="kt">byte</span><span class="p">[]</span> <span class="n">bytes</span><span class="p">)</span>
+ <span class="p">{</span>
+  <span class="kt">var</span> <span class="n">file</span> <span class="p">=</span> <span class="k">await</span> <span class="n">folder</span><span class="p">.</span><span class="nf">CreateFileAsync</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">CreationCollisionOption</span><span class="p">.</span><span class="n">ReplaceExisting</span><span class="p">);</span>
+  <span class="k">await</span> <span class="n">FileIO</span><span class="p">.</span><span class="nf">WriteBytesAsync</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">bytes</span><span class="p">);</span>
+ <span class="p">}</span></code></pre></figure>
+
+<h2 id="read-image-byte-from-file">Read Image Byte[] From File</h2>
+
+<figure class="highlight"><pre><code class="language-c#" data-lang="c#"> <span class="k">async</span> <span class="n">Task</span><span class="p">&lt;</span><span class="kt">byte</span><span class="p">[</span><span class="k">]&gt;</span> <span class="nf">getBytesFromFileAsync</span><span class="p">(</span><span class="n">StorageFolder</span> <span class="n">folder</span><span class="p">,</span> <span class="kt">string</span> <span class="n">name</span><span class="p">)</span>
+ <span class="p">{</span>
+  <span class="c1">//get from file
+</span>  <span class="kt">var</span> <span class="n">file</span> <span class="p">=</span> <span class="k">await</span> <span class="n">folder</span><span class="p">.</span><span class="nf">GetFileAsync</span><span class="p">(</span><span class="n">name</span><span class="p">);</span>
+  <span class="kt">var</span> <span class="n">buffer</span> <span class="p">=</span> <span class="k">await</span> <span class="n">FileIO</span><span class="p">.</span><span class="nf">ReadBufferAsync</span><span class="p">(</span><span class="n">file</span><span class="p">);</span>
+  <span class="k">return</span> <span class="n">buffer</span><span class="p">.</span><span class="nf">ToArray</span><span class="p">();</span>
+ <span class="p">}</span></code></pre></figure>
+
+<h2 id="convert-image-byte-to-bitmapimage-for-display-in-xaml">Convert Image Byte[] to BitmapImage for display in XAML</h2>
+
+<figure class="highlight"><pre><code class="language-c#" data-lang="c#"> <span class="k">async</span> <span class="n">Task</span><span class="p">&lt;</span><span class="n">BitmapImage</span><span class="p">&gt;</span> <span class="nf">convertBytesToBitmapAsync</span><span class="p">(</span><span class="kt">byte</span><span class="p">[]</span> <span class="n">bytes</span><span class="p">)</span>
+ <span class="p">{</span>
+  <span class="c1">//convert to bitmap
+</span>  <span class="kt">var</span> <span class="n">bitmapImage</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">BitmapImage</span><span class="p">();</span>
+  <span class="kt">var</span> <span class="n">stream</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">InMemoryRandomAccessStream</span><span class="p">();</span>
+  <span class="n">stream</span><span class="p">.</span><span class="nf">WriteAsync</span><span class="p">(</span><span class="n">bytes</span><span class="p">.</span><span class="nf">AsBuffer</span><span class="p">());</span>
+  <span class="n">stream</span><span class="p">.</span><span class="nf">Seek</span><span class="p">(</span><span class="m">0</span><span class="p">);</span>
+
+  <span class="c1">//display
+</span>  <span class="n">bitmapImage</span><span class="p">.</span><span class="nf">SetSource</span><span class="p">(</span><span class="n">stream</span><span class="p">);</span>
+
+  <span class="k">return</span> <span class="n">bitmapImage</span><span class="p">;</span>
+ <span class="p">}</span></code></pre></figure>
+
+<h2 id="convert-image-byte-to-base64-for-display-in-html-img-tag">Convert Image Byte[] to Base64 for display in HTML <img /> tag</h2>
+
+<figure class="highlight"><pre><code class="language-c#" data-lang="c#"> <span class="c1">//convert to base64 for display in html
+</span> <span class="kt">var</span> <span class="n">imgHtml</span> <span class="p">=</span> <span class="kt">string</span><span class="p">.</span><span class="nf">Format</span><span class="p">(</span><span class="s">"&lt;img src=\"data:image/jpeg;base64,{0}\" /&gt;"</span><span class="p">,</span>
+ <span class="n">Convert</span><span class="p">.</span><span class="nf">ToBase64String</span><span class="p">(</span><span class="n">contentBytes2</span><span class="p">));</span></code></pre></figure>
+
+<h2 id="putting-it-all-together">Putting it all together</h2>
+
+<figure class="highlight"><pre><code class="language-c#" data-lang="c#"> <span class="k">async</span> <span class="n">Task</span> <span class="nf">saveLoadImage</span><span class="p">()</span>
+ <span class="p">{</span>
+  <span class="kt">var</span> <span class="n">filename</span> <span class="p">=</span> <span class="s">"image"</span><span class="p">;</span>
+  <span class="kt">var</span> <span class="n">urlOfImage</span> <span class="p">=</span> <span class="s">"http://static.tvtropes.org/pmwiki/pub/images/pingu_506.jpg"</span><span class="p">;</span>
+
+  <span class="kt">var</span> <span class="n">folder</span> <span class="p">=</span> <span class="n">ApplicationData</span><span class="p">.</span><span class="n">Current</span><span class="p">.</span><span class="n">LocalFolder</span><span class="p">;</span>
+
+  <span class="c1">//get file
+</span>  <span class="kt">var</span> <span class="n">contentBytes</span> <span class="p">=</span> <span class="k">await</span> <span class="nf">getHttpAsBytesAsync</span><span class="p">(</span><span class="n">urlOfImage</span><span class="p">);</span>
+
+  <span class="c1">//save to file
+</span>  <span class="k">await</span> <span class="nf">saveBytesToFileAsync</span><span class="p">(</span><span class="n">folder</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">contentBytes</span><span class="p">);</span>
+
+  <span class="c1">//get from file
+</span>  <span class="kt">var</span> <span class="n">contentBytes2</span> <span class="p">=</span> <span class="k">await</span> <span class="nf">getBytesFromFileAsync</span><span class="p">(</span><span class="n">folder</span><span class="p">,</span> <span class="n">filename</span><span class="p">);</span>
+
+  <span class="c1">//convert to base64 for display in html
+</span>  <span class="kt">var</span> <span class="n">imgHtml</span> <span class="p">=</span> <span class="kt">string</span><span class="p">.</span><span class="nf">Format</span><span class="p">(</span><span class="s">"&lt;img src=\"data:image/jpeg;base64,{0}\" /&gt;"</span><span class="p">,</span>
+  <span class="n">Convert</span><span class="p">.</span><span class="nf">ToBase64String</span><span class="p">(</span><span class="n">contentBytes2</span><span class="p">));</span>
+
+  <span class="c1">//get bitmap from bytes, set image in XAML
+</span>  <span class="kt">var</span> <span class="n">contentAsImage</span> <span class="p">=</span> <span class="k">await</span> <span class="nf">convertBytesToBitmapAsync</span><span class="p">(</span><span class="n">contentBytes2</span><span class="p">);</span>
+  <span class="k">this</span><span class="p">.</span><span class="n">imgPenguin</span><span class="p">.</span><span class="n">Source</span> <span class="p">=</span> <span class="n">contentAsImage</span><span class="p">;</span>
+
+ <span class="p">}</span></code></pre></figure>
+
+<h3 id="sources">Sources</h3>
+
+<ul>
+  <li><a href="http://stackoverflow.com/questions/17107576/c-sharp-windows-8-store-metro-winrt-byte-array-to-bitmapimage">http://stackoverflow.com/questions/17107576/c-sharp-windows-8-store-metro-winrt-byte-array-to-bitmapimage</a></li>
+  <li><a href="http://stackoverflow.com/questions/13851462/how-do-i-read-a-binary-file-in-a-windows-store-app">http://stackoverflow.com/questions/13851462/how-do-i-read-a-binary-file-in-a-windows-store-app</a></li>
+  <li><a href="http://blog.jerrynixon.com/2012/06/windows-8-how-to-read-files-in-winrt.html">http://blog.jerrynixon.com/2012/06/windows-8-how-to-read-files-in-winrt.html</a></li>
+  <li><a href="http://stackoverflow.com/a/2368505/1241612">http://stackoverflow.com/a/2368505/1241612</a></li>
+  <li><a href="http://www.dailycoding.com/posts/convert_image_to_base64_string_and_base64_string_to_image.aspx">http://www.dailycoding.com/posts/convert_image_to_base64_string_and_base64_string_to_image.aspx</a></li>
+</ul>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+    </div>
+
+    <footer class="site-footer">
+  <div class="container text-center">
+    <p class="social-bar">
+
+      <a href="http://twitter.com/kallotec" target="_blank">
+        <img src="/assets/images/icons/noborder/twitter.png">
+      </a>
+      <a href="http://github.com/kallotec" target="_blank">
+        <img src="/assets/images/icons/noborder/github.png">
+      </a>
+      <a href="http://stackoverflow.com/users/1241612/kallotec" target="_blank">
+        <img src="/assets/images/icons/noborder/stackoverflow.png">
+      </a>
+      <a href="http://linkedin.com/in/kallotec" target="_blank">
+        <img src="/assets/images/icons/noborder/linkedin.png">
+      </a>
+    </p>
+
+    <p>&copy; 2016 KALLOTEC.</p>
+
+  </div>
+</footer>
+
+<script src="/assets/scripts/jquery.min.js"></script>
+<script src="/assets/scripts/bootstrap.min.js"></script>
+
+
+  </body>
+</html>

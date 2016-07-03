@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Implementing ScrollViewer and a multiline TextBox properly</title>
+  <meta name="description" content="Would you like to create a scrollable multi-line TextBox like OneNote or Messages? This would sound like a reasonably straightforward task, but as it turns o...">
+
+  <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="canonical" href="http://kallotec.io/xaml/2013/06/16/xaml-scrollviewer-and-multiline-textbox.html">
+  <link rel="alternate" type="application/rss+xml" title="KALLOTEC" href="http://kallotec.io/feed.xml">
+</head>
+
+  <body>
+
+    <header>
+
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#jb-navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">
+          <!-- <img id="logo-avatar" src="/assets/images/avatar.jpg" /> -->
+          KALLOTEC
+        </a>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="jb-navbar-collapse">
+
+        <ul class="nav navbar-nav navbar-right">
+          
+            
+          
+            
+          
+            
+              <li><a class="page-link" href="/posts/">Posts</a></li>
+            
+          
+            
+              <li><a class="page-link" href="/projects/">Projects</a></li>
+            
+          
+        </ul>
+
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container -->
+  </nav>
+</header>
+
+
+    <div>
+      <div class="page-header text-center">
+
+  <h1>Implementing ScrollViewer and a multiline TextBox properly </h1>
+
+  <div class="text-muted">
+    <span>16 June 2013</span>
+  </div>
+
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="content">
+        <p>Would you like to create a scrollable multi-line TextBox like OneNote or Messages? This would sound like a reasonably straightforward task, but as it turns out it is a task fraught with peril.</p>
+
+<p>This solution works for a TextBox sitting at the top or bottom of the page (e.g. messages), or a TextBox that need to fill the screen (e.g. comments/notes/an editor). It handles varying TextBox height and allows for proper scrolling at all times.</p>
+
+<p>Here’s the steps required for this to work:</p>
+
+<h3 id="simulate-a-popped-up-keyboard-in-the-page">1. Simulate a popped up keyboard in the page</h3>
+
+<p>Create a placeholder UI element that simulates the space the keyboard takes up on the page, which effectively squishes the ScrollViewer into the available space.
+Only display when the TextBox gets focus (i.e. only the keyboard is visible) and hide it when it doesn’t, using the GotFocus and LostFocus events.
+Note the keyboard height differs between different resolutions, so some checking is required to find the correct keyboard height, which can be done on the page’s Loaded event.</p>
+
+<h3 id="manually-scroll-the-scrollviewer-while-new-lines-of-text-are-entered">2. Manually scroll the ScrollViewer while new lines of text are entered.</h3>
+
+<p>This is required to so that as text wraps down to new lines the caret is kept in view. We do this by manually scrolling the ScrollViewer as the TextBox size increases. This is done in the TextChanged event of the TextBox.</p>
+
+<h3 id="prevent-windows-phone-from-natively-scrolling-up-your-page">3. Prevent Windows Phone from natively scrolling up your page.</h3>
+
+<p>Naturally while you’re typing in a mult-line TextBox if the caret gets too close to the keyboard, Windows Phone automatically pushes the entire page upward so as to keep the text field from being hidden underneath the keyboard. This built-in feature is redundant where we have our own means of scrolling (the ScrollViewer). This implicit action needs to be manually reset. To fix this, keep resetting the ApplicationRootFrame’s RenderTransformation property whenever the TextBox gets Focus.</p>
+
+<h3 id="manually-scroll-to-intended-caret-position">4. Manually scroll to intended caret position</h3>
+
+<p>On initially tapping a populated Textbox, scrolling to the point at which the user wants the cursor to be – specifically to an area that would be hidden after the keyboard is shown – requires some manual means to accomplish. This is handled on the Tap event.</p>
+
+<h3 id="result">Result</h3>
+
+<p>What we get is the following behaviour, while retaining proper scrolling while typing in the TextBox, as well as when focus is outside of it.</p>
+
+<p><img src="/assets/images/posts/xaml-custom-scrollviewer-options.jpg" alt="Responsive page supporting a snapped and full experience" /></p>
+
+<h3 id="full-code">Full code</h3>
+
+<p><strong>XAML + C#</strong></p>
+
+<figure class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;phone:PhoneApplicationPage</span> <span class="na">x:Class=</span><span class="s">”WP.TextEntry.MainPage”</span>
+    <span class="na">xmlns=</span><span class="s">”http://schemas.microsoft.com/winfx/2006/xaml/presentation&amp;#8221;</span>
+    <span class="na">xmlns:x=</span><span class="s">”http://schemas.microsoft.com/winfx/2006/xaml&amp;#8221;</span>
+    <span class="na">xmlns:phone=</span><span class="s">”clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone”</span>
+    <span class="na">xmlns:shell=</span><span class="s">”clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone”</span>
+    <span class="na">xmlns:d=</span><span class="s">”http://schemas.microsoft.com/expression/blend/2008&amp;#8243;</span>
+    <span class="na">xmlns:mc=</span><span class="s">”http://schemas.openxmlformats.org/markup-compatibility/2006&amp;#8243;</span>
+    <span class="na">mc:Ignorable=</span><span class="s">”d”</span>
+    <span class="na">FontFamily=</span><span class="s">”{StaticResource</span> <span class="err">PhoneFontFamilyNormal}”</span>
+    <span class="na">FontSize=</span><span class="s">”{StaticResource</span> <span class="err">PhoneFontSizeNormal}”</span>
+    <span class="na">Foreground=</span><span class="s">”{StaticResource</span> <span class="err">PhoneForegroundBrush}”</span>
+    <span class="na">SupportedOrientations=</span><span class="s">”PortraitOrLandscape”</span> <span class="na">Orientation=</span><span class="s">”Portrait”</span>
+    <span class="na">shell:SystemTray.IsVisible=</span><span class="s">”True”</span><span class="nt">&gt;</span>
+    <span class="cp">&lt;!–LayoutRoot is the root grid where all page content is placed–&gt;</span>
+    <span class="nt">&lt;Grid</span> <span class="na">x:Name=</span><span class="s">”LayoutRoot”</span> <span class="na">Grid.Row=</span><span class="s">”1″</span> <span class="na">Margin=</span><span class="s">”12,0,12,0″</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;Grid.RowDefinitions&gt;</span>
+            <span class="nt">&lt;RowDefinition</span> <span class="na">Height=</span><span class="s">”auto”</span> <span class="nt">/&gt;</span>
+            <span class="nt">&lt;RowDefinition</span> <span class="nt">/&gt;</span>
+            <span class="nt">&lt;RowDefinition</span> <span class="na">Height=</span><span class="s">”auto”</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;/Grid.RowDefinitions&gt;</span>
+        <span class="nt">&lt;TextBlock</span> <span class="na">Text=</span><span class="s">”Scrolling</span> <span class="err">TextBox</span> <span class="err">sample”</span> <span class="na">FontSize=</span><span class="s">”40″</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;ScrollViewer</span> <span class="na">Grid.Row=</span><span class="s">”1″</span>
+                      <span class="na">Background=</span><span class="s">”Orange”</span>
+                      <span class="na">Name=</span><span class="s">”scroller”</span><span class="nt">&gt;</span>
+            <span class="cp">&lt;!–option: wrap in a StackPanel to shrink the TextBox height, and vertically align it to either the top of bottom of row–&gt;</span>
+            <span class="cp">&lt;!–&lt;StackPanel VerticalAlignment=”Bottom”&gt;</span>–&gt;
+                <span class="cp">&lt;!–option: test solution with items above textbox, i.e. simulate message list–&gt;</span>
+                <span class="cp">&lt;!–&lt;Button&gt;</span>Arbitrary control 1<span class="nt">&lt;/Button&gt;</span>
+                <span class="nt">&lt;Button&gt;</span>Arbitrary control 2<span class="nt">&lt;/Button&gt;</span>
+                <span class="nt">&lt;Button&gt;</span>Arbitrary control 3<span class="nt">&lt;/Button&gt;</span>–&gt;
+                <span class="nt">&lt;TextBox</span> <span class="na">Name=</span><span class="s">”txtMessage”</span>
+                        <span class="na">TextWrapping=</span><span class="s">”Wrap”</span>
+                        <span class="na">AcceptsReturn=</span><span class="s">”True”</span>
+                        <span class="na">TextChanged=</span><span class="s">”txtMessage_TextChanged”</span>
+                        <span class="na">GotFocus=</span><span class="s">”txtMessage_GotFocus”</span>
+                        <span class="na">LostFocus=</span><span class="s">”txtMessage_LostFocus”</span>
+                        <span class="na">Tap=</span><span class="s">”txtMessage_Tap”</span> <span class="nt">/&gt;</span>
+            <span class="cp">&lt;!–&lt;/StackPanel&gt;</span>–&gt;
+        <span class="nt">&lt;/ScrollViewer&gt;</span>
+        <span class="cp">&lt;!–mimic the keyboard taking up space–&gt;</span>
+        <span class="nt">&lt;Grid</span> <span class="na">Grid.Row=</span><span class="s">”2″</span>
+                <span class="na">Name=</span><span class="s">”pnlKeyboardPlaceholder”</span>
+                <span class="na">Visibility=</span><span class="s">”Collapsed”</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/Grid&gt;</span>
+<span class="nt">&lt;/phone:PhoneApplicationPage&gt;</span></code></pre></figure>
+
+<figure class="highlight"><pre><code class="language-c#" data-lang="c#"><span class="k">using</span> <span class="nn">System</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">System.Collections.Generic</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">System.Linq</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">System.Net</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">System.Windows</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">System.Windows.Controls</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">System.Windows.Navigation</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">Microsoft.Phone.Controls</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">Microsoft.Phone.Shell</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">System.Windows.Media</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">System.Windows.Data</span><span class="p">;</span>
+
+<span class="k">namespace</span> <span class="nn">WP.TextEntry</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">partial</span> <span class="k">class</span> <span class="nc">MainPage</span> <span class="p">:</span> <span class="n">PhoneApplicationPage</span>
+    <span class="p">{</span>
+        <span class="k">public</span> <span class="nf">MainPage</span><span class="p">()</span>
+        <span class="p">{</span>
+            <span class="nf">InitializeComponent</span><span class="p">();</span>
+            <span class="n">Loaded</span> <span class="p">+=</span> <span class="n">MainPage_Loaded</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="k">void</span> <span class="nf">MainPage_Loaded</span><span class="p">(</span><span class="kt">object</span> <span class="n">sender</span><span class="p">,</span> <span class="n">RoutedEventArgs</span> <span class="n">e</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="c1">//determine if HD device
+</span>            <span class="kt">var</span> <span class="n">deviceWidth</span> <span class="p">=</span> <span class="k">this</span><span class="p">.</span><span class="n">ActualWidth</span><span class="p">;</span>
+            <span class="kt">var</span> <span class="n">isHdDevice</span> <span class="p">=</span> <span class="p">(</span><span class="n">deviceWidth</span> <span class="p">&gt;</span> <span class="m">500</span> <span class="p">?</span> <span class="k">true</span> <span class="p">:</span> <span class="k">false</span><span class="p">);</span>
+
+            <span class="c1">//the keyboard height differs between HD devices and regular ones
+</span>            <span class="k">if</span> <span class="p">(</span><span class="n">isHdDevice</span><span class="p">)</span>
+                <span class="n">keyboardHeight</span> <span class="p">=</span> <span class="m">540</span><span class="p">;</span>
+            <span class="k">else</span>
+                <span class="n">keyboardHeight</span> <span class="p">=</span> <span class="m">336</span><span class="p">;</span>
+
+            <span class="c1">//make the keyboard placeholder's height as high as
+</span>            <span class="c1">//the anticipted keyboard height
+</span>            <span class="c1">//this will be used to offset other controls on the page into the viewable area
+</span>            <span class="n">pnlKeyboardPlaceholder</span><span class="p">.</span><span class="n">Height</span> <span class="p">=</span> <span class="n">keyboardHeight</span><span class="p">;</span>
+
+        <span class="p">}</span>
+
+        <span class="kt">double</span> <span class="n">InputHeight</span><span class="p">;</span>
+        <span class="kt">int</span> <span class="n">keyboardHeight</span><span class="p">;</span>
+        <span class="kt">double</span> <span class="n">tapOffset</span><span class="p">;</span>
+
+        <span class="k">private</span> <span class="k">void</span> <span class="nf">txtMessage_Tap</span><span class="p">(</span><span class="kt">object</span> <span class="n">sender</span><span class="p">,</span> <span class="n">System</span><span class="p">.</span><span class="n">Windows</span><span class="p">.</span><span class="n">Input</span><span class="p">.</span><span class="n">GestureEventArgs</span> <span class="n">e</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="c1">//capture the y position of where the user tapped
+</span>            <span class="c1">//relative to the textbox
+</span>            <span class="n">tapOffset</span> <span class="p">=</span> <span class="n">e</span><span class="p">.</span><span class="nf">GetPosition</span><span class="p">(</span><span class="n">txtMessage</span><span class="p">).</span><span class="n">Y</span> <span class="p">-</span> <span class="m">80</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="k">private</span> <span class="k">void</span> <span class="nf">txtMessage_GotFocus</span><span class="p">(</span><span class="kt">object</span> <span class="n">sender</span><span class="p">,</span> <span class="n">RoutedEventArgs</span> <span class="n">e</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="c1">//reset any page movement cause by keyboard opening
+</span>            <span class="n">App</span><span class="p">.</span><span class="n">RootFrame</span><span class="p">.</span><span class="n">RenderTransform</span> <span class="p">=</span> <span class="k">new</span> <span class="nf">CompositeTransform</span><span class="p">();</span>
+
+            <span class="c1">//make the keyboard placeholder visible
+</span>            <span class="c1">//squishing the scrollviewer into the now smaller available screen area
+</span>            <span class="n">pnlKeyboardPlaceholder</span><span class="p">.</span><span class="n">Visibility</span> <span class="p">=</span> <span class="n">Visibility</span><span class="p">.</span><span class="n">Visible</span><span class="p">;</span>
+
+            <span class="c1">//re-measure content panel, scrollviewer and it's contents
+</span>            <span class="c1">//this is so that the scrollviewers available scrollable area is updated
+</span>            <span class="n">LayoutRoot</span><span class="p">.</span><span class="nf">UpdateLayout</span><span class="p">();</span>
+
+            <span class="c1">//scroll to the position of the click
+</span>            <span class="c1">//(tapOffset set in Tap event - Tap event fires before this and provides tap offset)
+</span>            <span class="n">scroller</span><span class="p">.</span><span class="nf">ScrollToVerticalOffset</span><span class="p">(</span><span class="n">tapOffset</span><span class="p">);</span>
+
+        <span class="p">}</span>
+
+        <span class="k">private</span> <span class="k">void</span> <span class="nf">txtMessage_TextChanged</span><span class="p">(</span><span class="kt">object</span> <span class="n">sender</span><span class="p">,</span> <span class="n">TextChangedEventArgs</span> <span class="n">e</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">Dispatcher</span><span class="p">.</span><span class="nf">BeginInvoke</span><span class="p">(()</span> <span class="p">=&gt;</span>
+            <span class="p">{</span>
+                <span class="kt">double</span> <span class="n">CurrentInputHeight</span> <span class="p">=</span> <span class="n">txtMessage</span><span class="p">.</span><span class="n">ActualHeight</span><span class="p">;</span>
+
+                <span class="c1">//after the user starts typing text, text will eventually wrap to the next line
+</span>                <span class="c1">//this ensures the textbox height doesnt sink below the bottom of the scrollviewer
+</span>                <span class="k">if</span> <span class="p">(</span><span class="n">CurrentInputHeight</span> <span class="p">&gt;</span> <span class="n">InputHeight</span><span class="p">)</span>
+                <span class="p">{</span>
+                    <span class="n">scroller</span><span class="p">.</span><span class="nf">ScrollToVerticalOffset</span><span class="p">(</span><span class="n">scroller</span><span class="p">.</span><span class="n">VerticalOffset</span> <span class="p">+</span> <span class="n">CurrentInputHeight</span> <span class="p">-</span> <span class="n">InputHeight</span><span class="p">);</span>
+                <span class="p">}</span>
+
+                <span class="n">InputHeight</span> <span class="p">=</span> <span class="n">CurrentInputHeight</span><span class="p">;</span>
+            <span class="p">});</span>
+        <span class="p">}</span>
+
+        <span class="k">private</span> <span class="k">void</span> <span class="nf">txtMessage_LostFocus</span><span class="p">(</span><span class="kt">object</span> <span class="n">sender</span><span class="p">,</span> <span class="n">RoutedEventArgs</span> <span class="n">e</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="c1">//hide the keyboard placeholder from screen
+</span>            <span class="c1">//allowing the scrollviewer to re-occupy the available area again
+</span>            <span class="k">this</span><span class="p">.</span><span class="n">pnlKeyboardPlaceholder</span><span class="p">.</span><span class="n">Visibility</span> <span class="p">=</span> <span class="n">Visibility</span><span class="p">.</span><span class="n">Collapsed</span><span class="p">;</span>
+
+        <span class="p">}</span>
+
+    <span class="p">}</span>
+<span class="p">}</span></code></pre></figure>
+
+<h3 id="other-notes">Other notes</h3>
+
+<p>The only real shortcoming is that it doesn’t detect whether the Clipboard row is being displayed ontop of the keyboard, which may hide some of the TextBox. But since it’s of static height and can be easily checked via Clipboard.ContainsText() method, it should be easy enough to extend this solution to handle.</p>
+
+<p>Support for panoramic mode will only require some more custom heights, and detection for orientation changes and states.</p>
+
+<h3 id="credits">Credits</h3>
+
+<p>I’ve spent some time searching and trying to implement this properly, and the solution combines the ideas from a few sources on the internet. So thanks must go to them for their contributions.</p>
+
+<ul>
+  <li><a href="http://stackoverflow.com/questions/10758581/scrollable-textbox-in-wp7-ala-skype-and-facebook">Juan Perez &amp; Ku6opr answers</a></li>
+  <li><a href="http://sorokoletov.com/2011/08/windows-phone-70-handling-text-entry-screens/">Alex Sorokoletov – Windows Phone 7 handling text entry screens and keyboard layouts</a></li>
+</ul>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+    </div>
+
+    <footer class="site-footer">
+  <div class="container text-center">
+    <p class="social-bar">
+
+      <a href="http://twitter.com/kallotec" target="_blank">
+        <img src="/assets/images/icons/noborder/twitter.png">
+      </a>
+      <a href="http://github.com/kallotec" target="_blank">
+        <img src="/assets/images/icons/noborder/github.png">
+      </a>
+      <a href="http://stackoverflow.com/users/1241612/kallotec" target="_blank">
+        <img src="/assets/images/icons/noborder/stackoverflow.png">
+      </a>
+      <a href="http://linkedin.com/in/kallotec" target="_blank">
+        <img src="/assets/images/icons/noborder/linkedin.png">
+      </a>
+    </p>
+
+    <p>&copy; 2016 KALLOTEC.</p>
+
+  </div>
+</footer>
+
+<script src="/assets/scripts/jquery.min.js"></script>
+<script src="/assets/scripts/bootstrap.min.js"></script>
+
+
+  </body>
+</html>

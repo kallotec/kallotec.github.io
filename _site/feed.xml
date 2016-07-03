@@ -1,0 +1,787 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>KALLOTEC</title>
+    <description>Full stack software engineer</description>
+    <link>http://kallotec.io/</link>
+    <atom:link href="http://kallotec.io/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Fri, 01 Jul 2016 19:11:06 +1200</pubDate>
+    <lastBuildDate>Fri, 01 Jul 2016 19:11:06 +1200</lastBuildDate>
+    <generator>Jekyll v3.0.0</generator>
+    
+      <item>
+        <title>Connascence</title>
+        <description>&lt;h1 id=&quot;code-camp&quot;&gt;Code Camp&lt;/h1&gt;
+
+&lt;p&gt;So I attended &lt;a href=&quot;http://codecampchristchurch.com&quot;&gt;Code Camp Christchurch&lt;/a&gt; over the weekend. The talks featured were excellent and certainly exceeded my expectations. I really was impressed by the wisdom imparted on the day. So much so that I wanted to distill and share one of the more valuable things I learned.&lt;/p&gt;
+
+&lt;p&gt;I went to &lt;a href=&quot;http://twitter.com/kiwipom&quot;&gt;Ian Randall&lt;/a&gt;s talk on how they do Continuous Delivery at &lt;a href=&quot;http://pushpay.com&quot;&gt;PushPay&lt;/a&gt;. While the talk was excellent in and of itself, the concept of &lt;strong&gt;Connascence&lt;/strong&gt; was dropped towards the end, without too much info other than emploring us to check it out, which I later did thankfully.&lt;/p&gt;
+
+&lt;h2 id=&quot;a-quest-to-write-better-code&quot;&gt;A quest to write better code&lt;/h2&gt;
+
+&lt;p&gt;I’ve learned a &lt;em&gt;lot&lt;/em&gt; of things over my career, but the only other time in when I learned something that actually helped me write better code was when I decided to take the time to understand SOLID properly.&lt;/p&gt;
+
+&lt;p&gt;SOLID provided me with an excellent tool/heuristic for making design decisions. Incidently, by applying SOLID, I actually found myself &lt;em&gt;accidently&lt;/em&gt; using existing design patterns. That was quite a breakthrough at the time.&lt;/p&gt;
+
+&lt;p&gt;But as I’ve found there’s still another missing peice in the puzzle. We have so much guidance in software design at a high level, but there’s nothing all that rigorous at the low level, guiding us with all the small but frequent, fine-grained coding decisions.&lt;/p&gt;
+
+&lt;p&gt;The concept of Connascence solves a lot of these problems, and for me has served as a second breakthrough in learning to write better code, and hopefully for you too!&lt;/p&gt;
+
+&lt;h2 id=&quot;connascence&quot;&gt;Connascence&lt;/h2&gt;
+
+&lt;p&gt;While &lt;a href=&quot;https://en.wikipedia.org/wiki/Connascence_%28computer_programming%29&quot;&gt;Wikipedia’s definition&lt;/a&gt; is great, I feel the following quote captures it a little more usefully.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Connascence is a way of describing the coupling between different parts of a codebase. And because it classifies the relative strength of that coupling, connascence can be used as a tool to help prioritise what should be refactored first.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Source: &lt;a href=&quot;https://silkandspinach.net/2015/01/22/connascence-of-value/&quot;&gt;https://silkandspinach.net/2015/01/22/connascence-of-value/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Note that this isn’t just used retroactively, it’s all about making better design choices &lt;em&gt;while writing code&lt;/em&gt; as well.&lt;/p&gt;
+
+&lt;h3 id=&quot;the-video&quot;&gt;The video&lt;/h3&gt;
+
+&lt;p&gt;Probably the best value-for-time explanation I’ve found is the following video, presented by &lt;a href=&quot;http://twitter.com/josh_robb&quot;&gt;Josh Robb&lt;/a&gt; (also from PushPay).&lt;/p&gt;
+
+&lt;p&gt;Video: &lt;a href=&quot;https://www.youtube.com/watch?v=Ip2o4vbAK3s&quot;&gt;https://www.youtube.com/watch?v=Ip2o4vbAK3s&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;In addition to a great outline of Connascence and how it’s used, the video also hints at some of the shortcomings of existing principles such as SOLID and challenges the idea of pre-emptive abstraction and patterns, and sights Connascence as a simpler, more robust answer.&lt;/p&gt;
+
+&lt;p&gt;It’s well worth 30 minutes of your time.&lt;/p&gt;
+
+&lt;h3 id=&quot;the-printout&quot;&gt;The printout&lt;/h3&gt;
+
+&lt;p&gt;Like the concept and want a printout as a quick reference? I couldn’t find any I really liked on google images, so I drew one up.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;/assets/images/posts/connascence.jpg&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/assets/images/posts/connascence.jpg&quot; alt=&quot;Connascence reference&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;common-reaction-from-colleagues&quot;&gt;Common reaction from colleagues&lt;/h2&gt;
+
+&lt;h3 id=&quot;but-some-of-these-things-i-already-know-and-are-really-obvious&quot;&gt;“But some of these things I already know and are really obvious..?”&lt;/h3&gt;
+
+&lt;p&gt;For example, the 2 argument function vs the 8 argument function (Connascence of Position) and refactoring the arguments into its own class (Connascence of Name). This is a code smell any skilled developer will pick up on, and so what else is new apart from the awesome sounding names we can impress people at parties with?&lt;/p&gt;
+
+&lt;p&gt;What we’ve actually done is place these known code smells (obvious or not) inside a classification system.&lt;/p&gt;
+
+&lt;p&gt;Before, we knew it was bad, but not how bad, relative to other categories of smells (Connascences). But now, we can measure the risk of certain types of code effectively, and make much better decisions about what we do with it, and the icing on the cake is that we now have a path for improvement - by refactoring the code toward better Connascences.&lt;/p&gt;
+
+&lt;h2 id=&quot;why-isnt-this-as-common-as-solid&quot;&gt;Why isn’t this as common as SOLID?&lt;/h2&gt;
+
+&lt;p&gt;My theory is that around the time the concept was conceived, perhaps code wasn’t as complex and omnipresent as it is now, it was perhaps conceived too early for it’s time. Interested to hear other oppinions..&lt;/p&gt;
+
+&lt;h2 id=&quot;further-reading&quot;&gt;Further reading&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://Connascence.io&quot;&gt;http://Connascence.io&lt;/a&gt; - Great next step, loads of concrete examples.&lt;/p&gt;
+</description>
+        <pubDate>Fri, 24 Jun 2016 10:50:50 +1200</pubDate>
+        <link>http://kallotec.io/2016/06/24/connascence.html</link>
+        <guid isPermaLink="true">http://kallotec.io/2016/06/24/connascence.html</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>A guide to completing side projects</title>
+        <description>&lt;p&gt;(About a 10 minute read)&lt;/p&gt;
+
+&lt;p&gt;So the other day I realized I had hit the 10 year milestone of working as a professional software developer.&lt;/p&gt;
+
+&lt;p&gt;To celebrate the milestone, I wanted to record and share some of the accumulated wisdom over that time.&lt;/p&gt;
+
+&lt;p&gt;As I’m about to release a side project I’ve worked on for just over 2 years, and having almost always been engaged in one side project or another throughout my career, it felt fitting for my first article to be about side projects and my techniques for completing them.&lt;/p&gt;
+
+&lt;h2 id=&quot;audience&quot;&gt;Audience&lt;/h2&gt;
+
+&lt;p&gt;In addition to hobbyists projects, this maybe most useful for those specifically wanting to create their own product or business. The prevailing advice out there seems to be to build something alongside the consistent income of a day job, then transition to full time once what you create on the side earns enough to cover itself and you and your family’s expenses.&lt;/p&gt;
+
+&lt;h2 id=&quot;the-problem&quot;&gt;The Problem&lt;/h2&gt;
+
+&lt;p&gt;Managing side projects are hard, what with a day job, family and other commitments. This time pressure along with an ineffective approach is why a lot of them are abandoned before they’re even completed. This sucks because of the potential of them eventuating into big turning points in people’s careers and lives.&lt;/p&gt;
+
+&lt;h2 id=&quot;the-solution&quot;&gt;The Solution&lt;/h2&gt;
+
+&lt;p&gt;The key I found is a combination of creating good &lt;strong&gt;mental tools&lt;/strong&gt;, a &lt;strong&gt;maintainable schedule&lt;/strong&gt;, and an &lt;strong&gt;effective process&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;mental-tools&quot;&gt;Mental Tools&lt;/h2&gt;
+
+&lt;p&gt;Some of the main things that affect progress are the inevitable lulls of motivation, fluctuating energy levels, “laziness”, burnout. All of which are just apart of life.&lt;/p&gt;
+
+&lt;p&gt;So below are some effective mental tools for combating them that I have found the most useful.&lt;/p&gt;
+
+&lt;h3 id=&quot;understanding-laziness&quot;&gt;Understanding Laziness&lt;/h3&gt;
+
+&lt;p&gt;Quickly before getting into the tools, it is important to first understand laziness.&lt;/p&gt;
+
+&lt;p&gt;Realize that laziness &lt;em&gt;used to be&lt;/em&gt; an effective human survival habbit.&lt;/p&gt;
+
+&lt;p&gt;Years back when it was all about survival, it was the thing that stopped you from going outside the cave more than you needed to, to preserve your energy, and because there’s a pretty good chance you’ll get mauled out there by a sabre-toothed tiger.&lt;/p&gt;
+
+&lt;p&gt;Today it’s a useless and counter-productive habbit we have inherited and the biggest thing that stops people from moving closer to our goals.&lt;/p&gt;
+
+&lt;p&gt;You will be well familiar with that lopsided battle of doing the “Thing You Should Be Doing (logic)” vs the “Thing Your Body Wants To Do (laziness)”.&lt;/p&gt;
+
+&lt;p&gt;This is the battle of your two minds.&lt;/p&gt;
+
+&lt;h3 id=&quot;tool-1--your-second-mind&quot;&gt;Tool #1 – Your Second Mind&lt;/h3&gt;
+
+&lt;p&gt;You’ve just had dinner after a day’s work, and you’re about to get stuck into your project, but there’s that usual feeling of “Ahhh I can’t be bothered, I just feel like playing games” or similar. And most of the time you cave in.&lt;/p&gt;
+
+&lt;p&gt;First thing to understand is your first mind, called the Thinking Mind, is producing these feelings. Unfortunately you can’t stop these feelings, and the more you fight it or try to control it, the more it gives power to that feeling, the more you’ll think about playing games, the more likely you’ll cave in and do it. It’s like quicksand.&lt;/p&gt;
+
+&lt;p&gt;What you might not realize is you have a second mind called the Observing Mind. This is the thing that starts coaching your ass through the last part of a tough workout. You feel like you want to quit, but there’s some thing in your mind that appears that keeps you going, it’s saying “No! You can do it! You’re almost there! Push!”.&lt;/p&gt;
+
+&lt;p&gt;We can’t (and shouldn’t) stop the Thinking Mind, but we can control the Observing Mind, which is what determines what to do with the feelings of the Thinking Mind.&lt;/p&gt;
+
+&lt;p&gt;Think of it like this: the feelings generated by the Thinking Mind are messages, and the Observing Mind is the controller; first reading and understanding the message, then accepting or ignoring it based on what it is.&lt;/p&gt;
+
+&lt;p&gt;The problem is, we don’t acknowledge we have this second mind or it’s power, and just do what all the messages say because we think that’s just how we feel. The good news is we have complete control over our Observing Mind in deciding what messages we accept and what we ignore.&lt;/p&gt;
+
+&lt;p&gt;We all have this basic controller, and the more we identify it is there and use it, the more effective it will become at discarding unwanted and distracting feelings generated from the Thinking Mind.&lt;/p&gt;
+
+&lt;p&gt;For me this technique helped the most to push through periods of burnout and lulls of enthusiasm, and to keep a consistent progress on the project. It actually amazed me how much more energetic I felt after discarding (not fighting) my first feeling of laziness.&lt;/p&gt;
+
+&lt;p&gt;This will be become one of your biggest tool in your mental tool belt.&lt;/p&gt;
+
+&lt;p&gt;Here’s an excerpt from the excellent article which introduced me to the concept:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;These days I’m often able to sit down and write 5,000 words
+or more in a single day. I still feel the same anxiety. I still
+hear the same thoughts (“I need to eat first,” “I should take a
+  nap,” “I’m not in a writing mood right now.”)&lt;/p&gt;
+
+  &lt;p&gt;But now, instead of identifying with these thoughts, I acknowledge them:
+&amp;lt;
+“I feel nervousness about writing today.”
+“I have the thought that I need to eat first.”
+“I have the thought that I need to take a nap first.”&lt;/p&gt;
+
+  &lt;p&gt;And then I turn to my Thinking Mind and promptly tell him that he’s
+full of shit and that I don’t need a damn thing except to sit my ass
+down and start writing.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;I highly recommend stopping here and reading it over, it should only take about 10 minutes.
+Read here: &lt;a href=&quot;http://markmanson.net/your-two-minds&quot;&gt;http://markmanson.net/your-two-minds&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;tool-2--the-starting-line&quot;&gt;Tool #2 – The Starting Line&lt;/h3&gt;
+
+&lt;p&gt;What was the exact feeling that made you start the project in the first place, the thing which gave you motivation to start it?&lt;/p&gt;
+
+&lt;p&gt;Perhaps it was a fear of never moving out of home, or the wanting of creating something that is yours, or the hate of working for other people and wanting to work for yourself.&lt;/p&gt;
+
+&lt;p&gt;If that feeling was what motivated you to start, it can be used to motivate you through to the finish.&lt;/p&gt;
+
+&lt;p&gt;Remember that feeling as vividly as possible. Think about how it made you feel, maybe where you were, whether you were angry or sad, what you said to yourself at the time. Details.&lt;/p&gt;
+
+&lt;p&gt;As mentioned in the Two Minds section, the more you focus/think about a feeling, the more power it gets. In this case the feeling is motivation/enthusiasm.&lt;/p&gt;
+
+&lt;p&gt;How many times have you milled over and over in your mind about something that annoyed you, and you notice yourself getting angrier and angrier? Annoyed is a feeling. Motivation is a feeling too. Therefore, the more you think about a motivating feeling, the more motivation you can get out of it!&lt;/p&gt;
+
+&lt;p&gt;Use that quirk against itself to create a powerful on-hand motivational tool. Any time your motivation wanes, replay and visualize that feeling for an effective boost.&lt;/p&gt;
+
+&lt;h3 id=&quot;tool-3--the-finish-line&quot;&gt;Tool #3 – The Finish Line&lt;/h3&gt;
+
+&lt;p&gt;Picture yourself at the end of the project; imagine/visualize what the result will be like, depending on the intended result of the project. E.g. working for yourself/freedom, not getting up early in the morning, making better money, how cool your resume will look, etc. And how you will feel when it’s done; e.g. happy, accomplished, confident. And how others might feel; e.g. jealous, envious, impressed.&lt;/p&gt;
+
+&lt;p&gt;Motivating right?&lt;/p&gt;
+
+&lt;p&gt;Do the same with this feeling as in Tool #2, and develop the feeling.&lt;/p&gt;
+
+&lt;p&gt;Get instant motivation by thinking about it, visualizing it, feeling it.&lt;/p&gt;
+
+&lt;h2 id=&quot;maintainable-schedule&quot;&gt;Maintainable Schedule&lt;/h2&gt;
+
+&lt;h3 id=&quot;family&quot;&gt;Family&lt;/h3&gt;
+
+&lt;p&gt;In addition to your day job, you need to fit project work around your family as well. Negative tension or arguments around home can be very distracting, demotivating and usually a project killer.&lt;/p&gt;
+
+&lt;p&gt;That being said, it’s vital to get your family on-board with what you’re doing and what you hope to achieve. Involve them. They may even be able to help out. Either way, it is great and motivating to have people to show your progress to and to have a source of positive reinforcement, encouragement and feedback.&lt;/p&gt;
+
+&lt;p&gt;Work &lt;strong&gt;with&lt;/strong&gt; them to decide a block of time where you can work peacefully, but it is just as vital to allocate a block of quality time with them as well. If you wish to protect your project time and still have a healthy relationship after it is done, you gotta compromise. You’re supposed to be a team after-all!&lt;/p&gt;
+
+&lt;p&gt;For me, my wife and I agreed that when I get home I help cook dinner together for about an hour, then spend an hour or so on the couch catching up on the day and playing with the dogs. Then about 8pm onwards is my project time while she is happy to do what she wants. We’re both happy and no guilty feelings.&lt;/p&gt;
+
+&lt;h3 id=&quot;unwinding-time&quot;&gt;Unwinding Time&lt;/h3&gt;
+
+&lt;p&gt;So far it is quite a full schedule but given excitement and motivation it won’t feel like it, making it easy to overload yourself, so it is important and healthy to include in your schedule a small piece of time for your brain to relax.&lt;/p&gt;
+
+&lt;p&gt;For me this is the final hour of the day where I can unwind the mind and play some mindless Xbox or do something else similarly mindless and relaxing.&lt;/p&gt;
+
+&lt;p&gt;Do this after project work, just before bed, the point is to relax the mind to help get to sleep, but also because it becomes a reward for the day’s efforts.&lt;/p&gt;
+
+&lt;p&gt;Never do this before the project work though, because once you’re wound down it is very difficult to boot your brain back up to get anything done.&lt;/p&gt;
+
+&lt;p&gt;Meditation is another great way to clear the mind before sleep.&lt;/p&gt;
+
+&lt;h3 id=&quot;sleep--burnout&quot;&gt;Sleep &amp;amp; Burnout&lt;/h3&gt;
+
+&lt;p&gt;It should go without saying it’s wise to determine a bed time on weeknights, and allow yourself to recharge the batteries. But sometimes the enthusiasm for the project is too much.&lt;/p&gt;
+
+&lt;p&gt;While it is easy to give in to excitement and enthusiasm, it is important to monitor how much rest you get during the work week, as it’s easy to burnout from tiredness.&lt;/p&gt;
+
+&lt;p&gt;After pulling 2am weeknights for a month or so at one stage, nothing got done for about the same amount of time afterward because my brain had enough and needed to recharge. After some experimenting I found 12 midnight was my absolute limit, giving myself 7-8 hrs sleep before work the next day.&lt;/p&gt;
+
+&lt;p&gt;So it does seem to require some experimentation to see where your individual limits are.&lt;/p&gt;
+
+&lt;h3 id=&quot;weekends&quot;&gt;Weekends&lt;/h3&gt;
+
+&lt;p&gt;What you do on weekends is fairly open-ended given far looser time constraints and differing commitments weekend to weekend, and will require experimentation and consultation with family.&lt;/p&gt;
+
+&lt;p&gt;If the idea of a late weekend night of tackling a big piece of work is exciting, embrace it! But try not let it eat into the healthy activities you would normally do on the weekend too e.g. getting out and about, going out at night with friends, etc. As by feeling restricted by your project can become a source of resentment, demotivation and burnout too.&lt;/p&gt;
+
+&lt;p&gt;Personally I like to make at least the same amount of contribution to the project on Saturday morning as I would during the week, so I feel good about going out and doing stuff later in the day/night.&lt;/p&gt;
+
+&lt;p&gt;Sunday’s the same deal, I like to accomplish a small piece of work early and then just enjoy the rest of the day chilling.&lt;/p&gt;
+
+&lt;h2 id=&quot;effective-process&quot;&gt;Effective Process&lt;/h2&gt;
+
+&lt;p&gt;By now you should be able to efficiently carve out a slot of time to put a maintainable effort into your side project. So far we’ve addressed the how, now to address the what.&lt;/p&gt;
+
+&lt;h3 id=&quot;break-it-right-down&quot;&gt;Break it right down&lt;/h3&gt;
+
+&lt;p&gt;For your project, create 3 lists: TODO, DOING, and DONE. No guesses as to what their roles are.&lt;/p&gt;
+
+&lt;p&gt;Free online tools like &lt;a href=&quot;http://www.trello.com&quot;&gt;Trello&lt;/a&gt; are great for managing these. Even post-it notes on a wall work.&lt;/p&gt;
+
+&lt;p&gt;List out all the tasks remaining in the TODO list. Go back over the list and further break down any tasks that still seem too big. They should be small, bite-sized actions.&lt;/p&gt;
+
+&lt;p&gt;Then order them by highest priority at the top, through to lowest at the bottom.&lt;/p&gt;
+
+&lt;p&gt;Here’s a somewhat contrived example of how breaking down a task might look:&lt;/p&gt;
+
+&lt;p&gt;First pass:&lt;/p&gt;
+
+&lt;p&gt;[TODO]&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Get new wheels for bike&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Second pass:&lt;/p&gt;
+
+&lt;p&gt;[TODO]&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Decide wheel budget&lt;/li&gt;
+  &lt;li&gt;Research treads and styles&lt;/li&gt;
+  &lt;li&gt;Talk to Joe about his experience buying wheels&lt;/li&gt;
+  &lt;li&gt;Decide on the set I want&lt;/li&gt;
+  &lt;li&gt;Find best price&lt;/li&gt;
+  &lt;li&gt;Purchase components&lt;/li&gt;
+  &lt;li&gt;Install on bike&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;This might at first seem unnecessarily detailed, but the result we have now is:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;There’s always at least 1 task at a size that fits the window of time you have available.&lt;/li&gt;
+  &lt;li&gt;A lot of the time, broken down tasks don’t always have to be done in order, so you have the option of choosing which task you’d like to tackle based on energy levels and interest at the time.&lt;/li&gt;
+  &lt;li&gt;You’re a lot less likely to forget anything important you might have missed earlier by not mentally exploring the task as much.&lt;/li&gt;
+  &lt;li&gt;You get a much better sense of how long the task will take by thinking about and understanding all of the tasks components.&lt;/li&gt;
+  &lt;li&gt;By prioritizing the list where the most important are at the top, you’re less likely to waste time with unimportant tasks, which get pushed down the bottom, or get deleted.&lt;/li&gt;
+  &lt;li&gt;Moving stuff into the DONE column (no matter how small) is satisfying and motivating, and produces a feeling of progress. More post-its mean more post-its move.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Keep refining this list over time and as your project evolves.&lt;/p&gt;
+
+&lt;h3 id=&quot;scope-creep&quot;&gt;Scope creep&lt;/h3&gt;
+
+&lt;p&gt;What helped me greatly with scope creep, was having an additional “nice to have” list. This housed all the cool ideas and any tasks &lt;em&gt;not&lt;/em&gt; absolutely necessary to get the first version of the project completed. This encouraged brainstorming, while staying focused on getting that first version out the door for feedback, and shortens your primary todo list of unecessary tasks.&lt;/p&gt;
+
+&lt;h2 id=&quot;keep-moving-forward&quot;&gt;Keep Moving Forward!&lt;/h2&gt;
+
+&lt;p&gt;This is important. And is what a well broken down task list enables.&lt;/p&gt;
+
+&lt;p&gt;By doing at least a small bit every day, big or small, you create a momentum that moves you closer to completion.&lt;/p&gt;
+
+&lt;p&gt;Before long you’ll form a habit and things will become much more effortless.&lt;/p&gt;
+
+&lt;h3 id=&quot;experiment&quot;&gt;Experiment&lt;/h3&gt;
+
+&lt;p&gt;What works for me might not work exactly for you, but the general concepts and advice should still apply. Tweak the different components until you find the sweet spot.&lt;/p&gt;
+
+&lt;p&gt;I’d love to hear if any of this helped you!&lt;/p&gt;
+</description>
+        <pubDate>Tue, 19 May 2015 10:50:50 +1200</pubDate>
+        <link>http://kallotec.io/process/2015/05/19/guide-to-completing-side-projects.html</link>
+        <guid isPermaLink="true">http://kallotec.io/process/2015/05/19/guide-to-completing-side-projects.html</guid>
+        
+        
+        <category>process</category>
+        
+      </item>
+    
+      <item>
+        <title>How to: download image, save as file, read file, display in XAML</title>
+        <description>&lt;p&gt;I’m currently implementing a caching layer in a Universal App that needs to cache images, and I had a difficult time finding any good complete examples demonstrating this only some very spread out bits of advice, so I’m posting a stripped down solution I’m using here to hopefully help the next person!&lt;/p&gt;
+
+&lt;p&gt;My requirements were&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Download arbitrary images via http&lt;/li&gt;
+  &lt;li&gt;Save image to file&lt;/li&gt;
+  &lt;li&gt;Read image from file&lt;/li&gt;
+  &lt;li&gt;Needs to handle arbitrary image dimensions (image will be of unknown width/height)&lt;/li&gt;
+  &lt;li&gt;Display image in UI, either inside XAML or inside an HTML &lt;img /&gt; tag&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;NOTE: For this to work it required writing bytes to the file not strings, so storage of the file had to be binary. Writing bytes as strings didn’t seem to work.&lt;/p&gt;
+
+&lt;p&gt;I’ve stripped down my solution into a sample method. Here are the individual parts…&lt;/p&gt;
+
+&lt;h2 id=&quot;get-http-image-as-byte&quot;&gt;Get Http Image As Byte[]&lt;/h2&gt;
+&lt;p&gt;(there’s probably a shorter way to accomplish this)&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c#&quot; data-lang=&quot;c#&quot;&gt; &lt;span class=&quot;k&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Task&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;byte&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;]&amp;gt;&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;getHttpAsBytesAsync&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+ &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;//build request
+&lt;/span&gt;  &lt;span class=&quot;kt&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;request&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;WebRequest&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;CreateHttp&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;UseDefaultCredentials&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;kt&quot;&gt;byte&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bytes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+  &lt;span class=&quot;c1&quot;&gt;//get response
+&lt;/span&gt;  &lt;span class=&quot;kt&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;response&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;GetResponseAsync&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;using&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;br&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;BinaryReader&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;GetResponseStream&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()))&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+   &lt;span class=&quot;k&quot;&gt;using&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ms&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;MemoryStream&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
+   &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kt&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;lineBuffer&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;br&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;ReadBytes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1024&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;while&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lineBuffer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Length&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+     &lt;span class=&quot;n&quot;&gt;ms&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Write&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lineBuffer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;lineBuffer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Length&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+     &lt;span class=&quot;n&quot;&gt;lineBuffer&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;br&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;ReadBytes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1024&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;n&quot;&gt;bytes&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;byte&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ms&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Length&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;ms&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Position&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;ms&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Read&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;bytes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bytes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Length&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+   &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bytes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+ &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h2 id=&quot;save-image-byte-to-file&quot;&gt;Save Image Byte[] To File&lt;/h2&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c#&quot; data-lang=&quot;c#&quot;&gt; &lt;span class=&quot;k&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Task&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;saveBytesToFileAsync&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;StorageFolder&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;folder&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;filename&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;byte&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bytes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+ &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;kt&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;file&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;folder&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;CreateFileAsync&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;filename&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;CreationCollisionOption&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ReplaceExisting&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;FileIO&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;WriteBytesAsync&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;file&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bytes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+ &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h2 id=&quot;read-image-byte-from-file&quot;&gt;Read Image Byte[] From File&lt;/h2&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c#&quot; data-lang=&quot;c#&quot;&gt; &lt;span class=&quot;k&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Task&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;byte&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;]&amp;gt;&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;getBytesFromFileAsync&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;StorageFolder&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;folder&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+ &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;//get from file
+&lt;/span&gt;  &lt;span class=&quot;kt&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;file&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;folder&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;GetFileAsync&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;kt&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;buffer&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;FileIO&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;ReadBufferAsync&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;file&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;buffer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;ToArray&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+ &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h2 id=&quot;convert-image-byte-to-bitmapimage-for-display-in-xaml&quot;&gt;Convert Image Byte[] to BitmapImage for display in XAML&lt;/h2&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c#&quot; data-lang=&quot;c#&quot;&gt; &lt;span class=&quot;k&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Task&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;BitmapImage&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;convertBytesToBitmapAsync&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;byte&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bytes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+ &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;//convert to bitmap
+&lt;/span&gt;  &lt;span class=&quot;kt&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bitmapImage&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;BitmapImage&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+  &lt;span class=&quot;kt&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;stream&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;InMemoryRandomAccessStream&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;stream&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;WriteAsync&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;bytes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;AsBuffer&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;());&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;stream&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Seek&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+  &lt;span class=&quot;c1&quot;&gt;//display
+&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;bitmapImage&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;SetSource&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;stream&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bitmapImage&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+ &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h2 id=&quot;convert-image-byte-to-base64-for-display-in-html-img-tag&quot;&gt;Convert Image Byte[] to Base64 for display in HTML &lt;img /&gt; tag&lt;/h2&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c#&quot; data-lang=&quot;c#&quot;&gt; &lt;span class=&quot;c1&quot;&gt;//convert to base64 for display in html
+&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;imgHtml&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Format&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&amp;lt;img src=\&quot;data:image/jpeg;base64,{0}\&quot; /&amp;gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+ &lt;span class=&quot;n&quot;&gt;Convert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;ToBase64String&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;contentBytes2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h2 id=&quot;putting-it-all-together&quot;&gt;Putting it all together&lt;/h2&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c#&quot; data-lang=&quot;c#&quot;&gt; &lt;span class=&quot;k&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Task&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;saveLoadImage&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+ &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;kt&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;filename&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;image&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;kt&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;urlOfImage&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;http://static.tvtropes.org/pmwiki/pub/images/pingu_506.jpg&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+  &lt;span class=&quot;kt&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;folder&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ApplicationData&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Current&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;LocalFolder&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+  &lt;span class=&quot;c1&quot;&gt;//get file
+&lt;/span&gt;  &lt;span class=&quot;kt&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;contentBytes&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;getHttpAsBytesAsync&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;urlOfImage&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+  &lt;span class=&quot;c1&quot;&gt;//save to file
+&lt;/span&gt;  &lt;span class=&quot;k&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;saveBytesToFileAsync&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;folder&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;filename&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;contentBytes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+  &lt;span class=&quot;c1&quot;&gt;//get from file
+&lt;/span&gt;  &lt;span class=&quot;kt&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;contentBytes2&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;getBytesFromFileAsync&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;folder&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;filename&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+  &lt;span class=&quot;c1&quot;&gt;//convert to base64 for display in html
+&lt;/span&gt;  &lt;span class=&quot;kt&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;imgHtml&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Format&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&amp;lt;img src=\&quot;data:image/jpeg;base64,{0}\&quot; /&amp;gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;Convert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;ToBase64String&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;contentBytes2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;
+
+  &lt;span class=&quot;c1&quot;&gt;//get bitmap from bytes, set image in XAML
+&lt;/span&gt;  &lt;span class=&quot;kt&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;contentAsImage&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;convertBytesToBitmapAsync&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;contentBytes2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;imgPenguin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Source&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;contentAsImage&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+ &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h3 id=&quot;sources&quot;&gt;Sources&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://stackoverflow.com/questions/17107576/c-sharp-windows-8-store-metro-winrt-byte-array-to-bitmapimage&quot;&gt;http://stackoverflow.com/questions/17107576/c-sharp-windows-8-store-metro-winrt-byte-array-to-bitmapimage&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://stackoverflow.com/questions/13851462/how-do-i-read-a-binary-file-in-a-windows-store-app&quot;&gt;http://stackoverflow.com/questions/13851462/how-do-i-read-a-binary-file-in-a-windows-store-app&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://blog.jerrynixon.com/2012/06/windows-8-how-to-read-files-in-winrt.html&quot;&gt;http://blog.jerrynixon.com/2012/06/windows-8-how-to-read-files-in-winrt.html&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://stackoverflow.com/a/2368505/1241612&quot;&gt;http://stackoverflow.com/a/2368505/1241612&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.dailycoding.com/posts/convert_image_to_base64_string_and_base64_string_to_image.aspx&quot;&gt;http://www.dailycoding.com/posts/convert_image_to_base64_string_and_base64_string_to_image.aspx&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Tue, 10 Mar 2015 11:50:50 +1300</pubDate>
+        <link>http://kallotec.io/xaml/2015/03/10/download-image-bytes-to-file-display-in-xaml-winrt-universalapps.html</link>
+        <guid isPermaLink="true">http://kallotec.io/xaml/2015/03/10/download-image-bytes-to-file-display-in-xaml-winrt-universalapps.html</guid>
+        
+        
+        <category>xaml</category>
+        
+      </item>
+    
+      <item>
+        <title>A XAML implementation of CSS responsive design</title>
+        <description>&lt;h2 id=&quot;css-vs-xaml&quot;&gt;CSS vs XAML&lt;/h2&gt;
+
+&lt;p&gt;Media queries in CSS are plain awesome for HTML webpages and more recently Windows 8 JS store applications, amongst other things they allow developer-defined styles to be switched between dynamically based on the current width of the users browser, providing the optimal user experience at supported screen sizes. This is what’s called responsive design.&lt;/p&gt;
+
+&lt;p&gt;XAML based technologies do not have such a simple mechanism for implementing this powerful concept. Some tools for supporting varying screen resolutions/states can be using the VisualStateManager and/or wrapping content in a Viewbox control. This usually provides an suboptimal experience for the user or complicated custom code for the developer. By creating an easy to use media query equivalent in XAML, I feel this would give app developers a new set of options for styling their apps and providing a better user experience.&lt;/p&gt;
+
+&lt;h2 id=&quot;a-xaml-implementation&quot;&gt;A XAML implementation&lt;/h2&gt;
+
+&lt;p&gt;By sub-classing the regular base classes in XAML such as Application and Page, I was able to respond to SizeChanged event internally and apply groups of styles based on the new width, thereby creating a responsive effect as I resized or snapped my apps.&lt;/p&gt;
+
+&lt;p&gt;While implementing app or page width-based responsive design, I found I was able to do the same for orientation modes for smart devices by responding to OrientationChanged events.&lt;/p&gt;
+
+&lt;p&gt;In my current implementation, users can group two sets of ResourceDictionaries. And based on the type of responsive method chosen, these style groups are added and removed from the Resources’ MergedDictionaries collection at runtime.&lt;/p&gt;
+
+&lt;h2 id=&quot;responsive-methods&quot;&gt;Responsive methods&lt;/h2&gt;
+
+&lt;p&gt;Here’s the methods of responsiveness I’m able to support at the moment:&lt;/p&gt;
+
+&lt;h3 id=&quot;winrt&quot;&gt;WinRT&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;KlingDigital.ResponsiveStyles.WinRT.ResponsiveWidth&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Possibly best used for supporting a snapped experience at a specific width.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;KlingDigital.ResponsiveStyles.WinRT.ResponsiveHeight&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Possibly best used to support a smaller screen experience with less vertical realestate vs larger ones.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;KlingDigital.ResponsiveStyles.WinRT.ResponsiveOrientation&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Possibly best used to provide separate portrait and landscape experiences. Note this currently also fires when application is snapped. Future versions will need to discern between Orientation and Snapped states.&lt;/p&gt;
+
+&lt;h3 id=&quot;wpf&quot;&gt;WPF&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;KlingDigital.ResponsiveStyles.WPF.ResponsiveWidth&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Possibly best used to provide tool-window and fullsized experiences without creating separate windows.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;KlingDigital.ResponsiveStyles.WPF.ResponsiveHeight&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Same as above.&lt;/p&gt;
+
+&lt;h3 id=&quot;phone8&quot;&gt;Phone8&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;KlingDigital.ResponsiveStyles.WP8.ResponsiveOrientation&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Possibly best used when a tailored experience is required for a different orientation state.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;KlingDigital.ResponsiveStyles.WP8.ResponsiveHD&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Possibly best used if a less memory intensive experience is required for lower memory devices or resolutions. Or conversely provide an experience that better utilizes the added height in available screen real estate on HD.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/posts/xaml-responsive-snapped.png&quot; alt=&quot;Responsive page supporting a snapped and full experience&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Above: Responsive page supporting a snapped and full experience&lt;/em&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;combining-responsive-methods&quot;&gt;Combining responsive methods&lt;/h2&gt;
+
+&lt;p&gt;Any combination of responsive methods can be used in the same app or page.&lt;/p&gt;
+
+&lt;h2 id=&quot;per-page-or-global&quot;&gt;Per page or global&lt;/h2&gt;
+
+&lt;p&gt;Responsiveness can be done ad-hoc at either the App or Page level or both. Simply replace the App or Page base class with the responsive version from my libraries.&lt;/p&gt;
+
+&lt;p&gt;It made sense to implement it only at the Page level for WPF. Reason being a WPF app can have many windows, all of which can be different sizes so controlling style switching at the app level doesn’t make alotta sense. However if required, the implementation for WinRT can be ported over manually.&lt;/p&gt;
+
+&lt;h2 id=&quot;current-drawbacks&quot;&gt;Current drawbacks&lt;/h2&gt;
+
+&lt;p&gt;If mixing responsive styles at the app or page level, care would need to be given so that styles and style files do not collide. This may result in runtime errors.&lt;/p&gt;
+
+&lt;p&gt;Still getting design time support to work.&lt;/p&gt;
+
+&lt;p&gt;No Silverlight support yet, unless requested.&lt;/p&gt;
+
+&lt;h2 id=&quot;sample-solution-download&quot;&gt;Sample solution download&lt;/h2&gt;
+
+&lt;p&gt;I created some sample projects for WinRT, WP8, and WPF, to demonstrate these techniques. Feel free to use it how you please, and if you do, a link back to this article would be much appreciated.&lt;/p&gt;
+
+&lt;p&gt;https://github.com/kallotec/XAMLResponsiveStyles&lt;/p&gt;
+
+&lt;h2 id=&quot;tell-me-if-you-find-this-useful&quot;&gt;Tell me if you find this useful!&lt;/h2&gt;
+
+&lt;p&gt;This has purely been experimentation thus far and bit of fun. I’m still yet to see where it may go. If you try it on your own project, please leave a comment with your findings!&lt;/p&gt;
+</description>
+        <pubDate>Sat, 29 Mar 2014 11:50:50 +1300</pubDate>
+        <link>http://kallotec.io/xaml/2014/03/29/xaml-responsive-design-media-queries.html</link>
+        <guid isPermaLink="true">http://kallotec.io/xaml/2014/03/29/xaml-responsive-design-media-queries.html</guid>
+        
+        
+        <category>xaml</category>
+        
+      </item>
+    
+      <item>
+        <title>Implementing ScrollViewer and a multiline TextBox properly</title>
+        <description>&lt;p&gt;Would you like to create a scrollable multi-line TextBox like OneNote or Messages? This would sound like a reasonably straightforward task, but as it turns out it is a task fraught with peril.&lt;/p&gt;
+
+&lt;p&gt;This solution works for a TextBox sitting at the top or bottom of the page (e.g. messages), or a TextBox that need to fill the screen (e.g. comments/notes/an editor). It handles varying TextBox height and allows for proper scrolling at all times.&lt;/p&gt;
+
+&lt;p&gt;Here’s the steps required for this to work:&lt;/p&gt;
+
+&lt;h3 id=&quot;simulate-a-popped-up-keyboard-in-the-page&quot;&gt;1. Simulate a popped up keyboard in the page&lt;/h3&gt;
+
+&lt;p&gt;Create a placeholder UI element that simulates the space the keyboard takes up on the page, which effectively squishes the ScrollViewer into the available space.
+Only display when the TextBox gets focus (i.e. only the keyboard is visible) and hide it when it doesn’t, using the GotFocus and LostFocus events.
+Note the keyboard height differs between different resolutions, so some checking is required to find the correct keyboard height, which can be done on the page’s Loaded event.&lt;/p&gt;
+
+&lt;h3 id=&quot;manually-scroll-the-scrollviewer-while-new-lines-of-text-are-entered&quot;&gt;2. Manually scroll the ScrollViewer while new lines of text are entered.&lt;/h3&gt;
+
+&lt;p&gt;This is required to so that as text wraps down to new lines the caret is kept in view. We do this by manually scrolling the ScrollViewer as the TextBox size increases. This is done in the TextChanged event of the TextBox.&lt;/p&gt;
+
+&lt;h3 id=&quot;prevent-windows-phone-from-natively-scrolling-up-your-page&quot;&gt;3. Prevent Windows Phone from natively scrolling up your page.&lt;/h3&gt;
+
+&lt;p&gt;Naturally while you’re typing in a mult-line TextBox if the caret gets too close to the keyboard, Windows Phone automatically pushes the entire page upward so as to keep the text field from being hidden underneath the keyboard. This built-in feature is redundant where we have our own means of scrolling (the ScrollViewer). This implicit action needs to be manually reset. To fix this, keep resetting the ApplicationRootFrame’s RenderTransformation property whenever the TextBox gets Focus.&lt;/p&gt;
+
+&lt;h3 id=&quot;manually-scroll-to-intended-caret-position&quot;&gt;4. Manually scroll to intended caret position&lt;/h3&gt;
+
+&lt;p&gt;On initially tapping a populated Textbox, scrolling to the point at which the user wants the cursor to be – specifically to an area that would be hidden after the keyboard is shown – requires some manual means to accomplish. This is handled on the Tap event.&lt;/p&gt;
+
+&lt;h3 id=&quot;result&quot;&gt;Result&lt;/h3&gt;
+
+&lt;p&gt;What we get is the following behaviour, while retaining proper scrolling while typing in the TextBox, as well as when focus is outside of it.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/posts/xaml-custom-scrollviewer-options.jpg&quot; alt=&quot;Responsive page supporting a snapped and full experience&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;full-code&quot;&gt;Full code&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;XAML + C#&lt;/strong&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;phone:PhoneApplicationPage&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;x:Class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;”WP.TextEntry.MainPage”&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;xmlns=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;”http://schemas.microsoft.com/winfx/2006/xaml/presentation&amp;amp;#8221;&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;xmlns:x=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;”http://schemas.microsoft.com/winfx/2006/xaml&amp;amp;#8221;&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;xmlns:phone=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;”clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone”&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;xmlns:shell=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;”clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone”&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;xmlns:d=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;”http://schemas.microsoft.com/expression/blend/2008&amp;amp;#8243;&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;xmlns:mc=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;”http://schemas.openxmlformats.org/markup-compatibility/2006&amp;amp;#8243;&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;mc:Ignorable=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;”d”&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;FontFamily=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;”{StaticResource&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;PhoneFontFamilyNormal}”&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;FontSize=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;”{StaticResource&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;PhoneFontSizeNormal}”&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;Foreground=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;”{StaticResource&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;PhoneForegroundBrush}”&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;SupportedOrientations=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;”PortraitOrLandscape”&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;Orientation=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;”Portrait”&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;shell:SystemTray.IsVisible=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;”True”&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;cp&quot;&gt;&amp;lt;!–LayoutRoot is the root grid where all page content is placed–&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;Grid&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;x:Name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;”LayoutRoot”&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;Grid.Row=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;”1″&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;Margin=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;”12,0,12,0″&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;Grid.RowDefinitions&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;RowDefinition&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;Height=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;”auto”&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;RowDefinition&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;nt&quot;&gt;&amp;lt;RowDefinition&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;Height=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;”auto”&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;/Grid.RowDefinitions&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;TextBlock&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;Text=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;”Scrolling&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;TextBox&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;sample”&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;FontSize=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;”40″&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;ScrollViewer&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;Grid.Row=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;”1″&lt;/span&gt;
+                      &lt;span class=&quot;na&quot;&gt;Background=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;”Orange”&lt;/span&gt;
+                      &lt;span class=&quot;na&quot;&gt;Name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;”scroller”&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;cp&quot;&gt;&amp;lt;!–option: wrap in a StackPanel to shrink the TextBox height, and vertically align it to either the top of bottom of row–&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;cp&quot;&gt;&amp;lt;!–&amp;lt;StackPanel VerticalAlignment=”Bottom”&amp;gt;&lt;/span&gt;–&amp;gt;
+                &lt;span class=&quot;cp&quot;&gt;&amp;lt;!–option: test solution with items above textbox, i.e. simulate message list–&amp;gt;&lt;/span&gt;
+                &lt;span class=&quot;cp&quot;&gt;&amp;lt;!–&amp;lt;Button&amp;gt;&lt;/span&gt;Arbitrary control 1&lt;span class=&quot;nt&quot;&gt;&amp;lt;/Button&amp;gt;&lt;/span&gt;
+                &lt;span class=&quot;nt&quot;&gt;&amp;lt;Button&amp;gt;&lt;/span&gt;Arbitrary control 2&lt;span class=&quot;nt&quot;&gt;&amp;lt;/Button&amp;gt;&lt;/span&gt;
+                &lt;span class=&quot;nt&quot;&gt;&amp;lt;Button&amp;gt;&lt;/span&gt;Arbitrary control 3&lt;span class=&quot;nt&quot;&gt;&amp;lt;/Button&amp;gt;&lt;/span&gt;–&amp;gt;
+                &lt;span class=&quot;nt&quot;&gt;&amp;lt;TextBox&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;Name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;”txtMessage”&lt;/span&gt;
+                        &lt;span class=&quot;na&quot;&gt;TextWrapping=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;”Wrap”&lt;/span&gt;
+                        &lt;span class=&quot;na&quot;&gt;AcceptsReturn=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;”True”&lt;/span&gt;
+                        &lt;span class=&quot;na&quot;&gt;TextChanged=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;”txtMessage_TextChanged”&lt;/span&gt;
+                        &lt;span class=&quot;na&quot;&gt;GotFocus=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;”txtMessage_GotFocus”&lt;/span&gt;
+                        &lt;span class=&quot;na&quot;&gt;LostFocus=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;”txtMessage_LostFocus”&lt;/span&gt;
+                        &lt;span class=&quot;na&quot;&gt;Tap=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;”txtMessage_Tap”&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;cp&quot;&gt;&amp;lt;!–&amp;lt;/StackPanel&amp;gt;&lt;/span&gt;–&amp;gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;/ScrollViewer&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;cp&quot;&gt;&amp;lt;!–mimic the keyboard taking up space–&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;nt&quot;&gt;&amp;lt;Grid&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;Grid.Row=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;”2″&lt;/span&gt;
+                &lt;span class=&quot;na&quot;&gt;Name=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;”pnlKeyboardPlaceholder”&lt;/span&gt;
+                &lt;span class=&quot;na&quot;&gt;Visibility=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;”Collapsed”&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/Grid&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/phone:PhoneApplicationPage&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c#&quot; data-lang=&quot;c#&quot;&gt;&lt;span class=&quot;k&quot;&gt;using&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;using&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;System.Collections.Generic&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;using&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;System.Linq&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;using&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;System.Net&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;using&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;System.Windows&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;using&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;System.Windows.Controls&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;using&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;System.Windows.Navigation&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;using&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;Microsoft.Phone.Controls&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;using&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;Microsoft.Phone.Shell&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;using&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;System.Windows.Media&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;using&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;System.Windows.Data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;namespace&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;WP.TextEntry&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;partial&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;MainPage&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;PhoneApplicationPage&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;MainPage&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;nf&quot;&gt;InitializeComponent&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;Loaded&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;MainPage_Loaded&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+        &lt;span class=&quot;k&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;MainPage_Loaded&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;object&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sender&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;RoutedEventArgs&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;c1&quot;&gt;//determine if HD device
+&lt;/span&gt;            &lt;span class=&quot;kt&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;deviceWidth&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ActualWidth&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+            &lt;span class=&quot;kt&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;isHdDevice&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;deviceWidth&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;500&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;?&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;true&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+            &lt;span class=&quot;c1&quot;&gt;//the keyboard height differs between HD devices and regular ones
+&lt;/span&gt;            &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;isHdDevice&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;keyboardHeight&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;540&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+            &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;keyboardHeight&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;336&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+            &lt;span class=&quot;c1&quot;&gt;//make the keyboard placeholder&#39;s height as high as
+&lt;/span&gt;            &lt;span class=&quot;c1&quot;&gt;//the anticipted keyboard height
+&lt;/span&gt;            &lt;span class=&quot;c1&quot;&gt;//this will be used to offset other controls on the page into the viewable area
+&lt;/span&gt;            &lt;span class=&quot;n&quot;&gt;pnlKeyboardPlaceholder&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Height&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;keyboardHeight&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+        &lt;span class=&quot;kt&quot;&gt;double&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;InputHeight&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;keyboardHeight&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;kt&quot;&gt;double&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tapOffset&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+        &lt;span class=&quot;k&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;txtMessage_Tap&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;object&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sender&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;System&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Windows&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Input&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GestureEventArgs&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;c1&quot;&gt;//capture the y position of where the user tapped
+&lt;/span&gt;            &lt;span class=&quot;c1&quot;&gt;//relative to the textbox
+&lt;/span&gt;            &lt;span class=&quot;n&quot;&gt;tapOffset&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;GetPosition&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;txtMessage&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Y&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;80&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+        &lt;span class=&quot;k&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;txtMessage_GotFocus&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;object&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sender&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;RoutedEventArgs&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;c1&quot;&gt;//reset any page movement cause by keyboard opening
+&lt;/span&gt;            &lt;span class=&quot;n&quot;&gt;App&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;RootFrame&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;RenderTransform&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;CompositeTransform&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+
+            &lt;span class=&quot;c1&quot;&gt;//make the keyboard placeholder visible
+&lt;/span&gt;            &lt;span class=&quot;c1&quot;&gt;//squishing the scrollviewer into the now smaller available screen area
+&lt;/span&gt;            &lt;span class=&quot;n&quot;&gt;pnlKeyboardPlaceholder&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Visibility&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Visibility&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Visible&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+            &lt;span class=&quot;c1&quot;&gt;//re-measure content panel, scrollviewer and it&#39;s contents
+&lt;/span&gt;            &lt;span class=&quot;c1&quot;&gt;//this is so that the scrollviewers available scrollable area is updated
+&lt;/span&gt;            &lt;span class=&quot;n&quot;&gt;LayoutRoot&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;UpdateLayout&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+
+            &lt;span class=&quot;c1&quot;&gt;//scroll to the position of the click
+&lt;/span&gt;            &lt;span class=&quot;c1&quot;&gt;//(tapOffset set in Tap event - Tap event fires before this and provides tap offset)
+&lt;/span&gt;            &lt;span class=&quot;n&quot;&gt;scroller&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;ScrollToVerticalOffset&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tapOffset&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+        &lt;span class=&quot;k&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;txtMessage_TextChanged&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;object&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sender&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;TextChangedEventArgs&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;Dispatcher&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;BeginInvoke&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&amp;gt;&lt;/span&gt;
+            &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+                &lt;span class=&quot;kt&quot;&gt;double&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;CurrentInputHeight&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;txtMessage&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ActualHeight&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+                &lt;span class=&quot;c1&quot;&gt;//after the user starts typing text, text will eventually wrap to the next line
+&lt;/span&gt;                &lt;span class=&quot;c1&quot;&gt;//this ensures the textbox height doesnt sink below the bottom of the scrollviewer
+&lt;/span&gt;                &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;CurrentInputHeight&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;InputHeight&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+                &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+                    &lt;span class=&quot;n&quot;&gt;scroller&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;ScrollToVerticalOffset&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;scroller&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;VerticalOffset&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;CurrentInputHeight&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;InputHeight&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+                &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+                &lt;span class=&quot;n&quot;&gt;InputHeight&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;CurrentInputHeight&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+            &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+        &lt;span class=&quot;k&quot;&gt;private&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;txtMessage_LostFocus&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;object&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sender&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;RoutedEventArgs&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;c1&quot;&gt;//hide the keyboard placeholder from screen
+&lt;/span&gt;            &lt;span class=&quot;c1&quot;&gt;//allowing the scrollviewer to re-occupy the available area again
+&lt;/span&gt;            &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pnlKeyboardPlaceholder&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Visibility&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Visibility&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Collapsed&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;h3 id=&quot;other-notes&quot;&gt;Other notes&lt;/h3&gt;
+
+&lt;p&gt;The only real shortcoming is that it doesn’t detect whether the Clipboard row is being displayed ontop of the keyboard, which may hide some of the TextBox. But since it’s of static height and can be easily checked via Clipboard.ContainsText() method, it should be easy enough to extend this solution to handle.&lt;/p&gt;
+
+&lt;p&gt;Support for panoramic mode will only require some more custom heights, and detection for orientation changes and states.&lt;/p&gt;
+
+&lt;h3 id=&quot;credits&quot;&gt;Credits&lt;/h3&gt;
+
+&lt;p&gt;I’ve spent some time searching and trying to implement this properly, and the solution combines the ideas from a few sources on the internet. So thanks must go to them for their contributions.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://stackoverflow.com/questions/10758581/scrollable-textbox-in-wp7-ala-skype-and-facebook&quot;&gt;Juan Perez &amp;amp; Ku6opr answers&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://sorokoletov.com/2011/08/windows-phone-70-handling-text-entry-screens/&quot;&gt;Alex Sorokoletov – Windows Phone 7 handling text entry screens and keyboard layouts&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Sun, 16 Jun 2013 10:50:50 +1200</pubDate>
+        <link>http://kallotec.io/xaml/2013/06/16/xaml-scrollviewer-and-multiline-textbox.html</link>
+        <guid isPermaLink="true">http://kallotec.io/xaml/2013/06/16/xaml-scrollviewer-and-multiline-textbox.html</guid>
+        
+        
+        <category>xaml</category>
+        
+      </item>
+    
+      <item>
+        <title>Capitalize the first letter of a TextBox (Windows Phone)</title>
+        <description>&lt;p&gt;For a standard TextBox, the default on-screen keyboard is presented so that the first letter entered is lower-case, unless of course the user first taps the upper-case keyboard arrow. But in many cases, this is an annoying extra step for the user.&lt;/p&gt;
+
+&lt;p&gt;To configure the keyboard to capitalize the first letter for a &lt;code&gt;TextBox&lt;/code&gt;, simply set the TextBox’s &lt;code&gt;InputScope&lt;/code&gt; property to “PersonalFullName”. The &lt;code&gt;InputScope&lt;/code&gt; property controls the way in which the on-screen keyboard is displayed to the user when a particular input control is being edited.&lt;/p&gt;
+
+&lt;h4 id=&quot;microsoft-warns-this-should-only-be-used-with-silverlight-for-windows-phone&quot;&gt;Microsoft warns this should only be used with Silverlight for Windows Phone.&lt;/h4&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c#&quot; data-lang=&quot;c#&quot;&gt;&lt;span class=&quot;n&quot;&gt;InputScope&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;inputScope&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;InputScope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;InputScopeName&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;inputScopeName&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;InputScopeName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;inputScopeName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;NameValue&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;InputScopeNameValue&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;PersonalFullName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;inputScope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Names&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;Add&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;inputScopeName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;textbox&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;InputScope&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;inputScope&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Too verbose? Setting it in XAML is cleaner.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;TextBox&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;InputScope=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;”PersonalFullName”&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;For many text boxes that require this, a global style might be a more manageable approach.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-xml&quot; data-lang=&quot;xml&quot;&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;Style&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;TargetType=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;”TextBox”&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;Setter&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;Property=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;”InputScope”&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;Value=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;”PersonalFullName”&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;/Style&amp;gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;While we’re on the subject, it’s worth checking out the other common InputScope values. For example “Text”, which enables auto-correct and text suggestion.&lt;/p&gt;
+</description>
+        <pubDate>Sat, 26 Jan 2013 11:50:50 +1300</pubDate>
+        <link>http://kallotec.io/xaml/2013/01/26/xaml-capitalize-first-letter-of-textbox.html</link>
+        <guid isPermaLink="true">http://kallotec.io/xaml/2013/01/26/xaml-capitalize-first-letter-of-textbox.html</guid>
+        
+        
+        <category>xaml</category>
+        
+      </item>
+    
+  </channel>
+</rss>
