@@ -37,19 +37,32 @@ layout: splash
   <p>&nbsp;</p>
 
   <div class="cards">
-    <div class="row">
-      {% for project in site.data.projects %}
 
-        <div class="col-sm-6 col-md-4">
-           <div class="card">
-               <p><a class="url" href="{{ project.url }}" target="_blank">{{ project.name }}</a></p>
-               <p>{{ project.desc }}</p>
-               <p class="text-muted">{{ project.tech }}</p>
-           </div>
+
+    {% for project in site.data.projects %}
+
+      {% assign loopindex = forloop.index | modulo: 3 %}
+
+      {% if forloop.first %}
+      <div class="row">
+      {% endif %}
+
+          <div class="col-sm-6 col-md-4">
+            <div class="card">
+                <p><a class="url" href="{{ project.url }}" target="_blank">{{ project.name }}</a></p>
+                <p>{{ project.desc }}</p>
+                <p class="text-muted">{{ project.tech }}</p>
+            </div>
+          </div>
+
+      {% if forloop.last %}
         </div>
+      {% elsif loopindex == 0 %}
+        </div>
+        <div class="row">
+      {% endif %}
 
-      {% endfor %}
-    </div>
+    {% endfor %}
 
   </div>
 

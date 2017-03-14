@@ -1,3 +1,10 @@
+- name: Nightscape
+  url: http://nightscape.co.nz
+  image:
+  tech: 
+  desc: |
+        Christchurch based startup aiming to enhance party-goers night out through a location-based marketing platform and a new smartphone app.
+
 - name: SPACEPANTS
   url: http://ludumdare.com/compo/ludum-dare-35/?action=preview&uid=54338
   image:
@@ -5,27 +12,13 @@
   desc: |
         Competition entry for Ludum Dare #35, the 72 hour game development competition. The official theme was "ShapeShift", but I went with a runner-up theme of "Limited Resources". Timelapse coming soon.
 
-- name: kallotec.io
-  url: http://kallotec.io
-  image: /assets/images/projects/thumbs/gh.png
-  tech: Jekyll, Bootstrap, Ruby
-  desc: |
-        Much needed overhaul of my personal blog/portfolio, built with Jekyll and hosted on github pages.
-
 - name: GMTM
-  url: http://gmtm.co
+  url: /assets/images/projects/gmtm.png
   image: /assets/images/projects/thumbs/gmtm.png
   tech: C#, ASP.NET MVC, WebAPI, Boostrap
   desc: |
-        An online event coordination platform aimed at gamers. It addresses the common problem of coordinating groups of players in different timezones who're trying to play together.
-        Users can create their own events and follow friends and public figures. Currently in closed beta.
-
-- name: E.W.O.K.
-  url: http://ludumdare.com/compo/ludum-dare-33/?action=preview&uid=54338
-  image: /assets/images/projects/thumbs/ld33ewok.png
-  tech: Unreal Engine, Blueprint
-  desc: |
-        Competition entry for Ludum Dare #33, the 72 hour game development competition. The theme we were given was "You are the monster". <a href="https://youtu.be/1gJkfTRtPcQ" target="_blank">Time lapse video</a>
+        An online event coordination platform aimed at gamers, addressing the common problem of coordinating groups of players in different timezones.
+        Users can create their own events and follow friends and public figures. Gmtm open beta concluded, project shelved.
 
 - name: XAML Responsive Styles
   url: https://github.com/kallotec/XAMLResponsiveStyles
@@ -34,7 +27,7 @@
   desc: |
         A concept for a XAML equivelent implementation of CSS media queries, to enable simple stylesheet switching mechanisms based on frame size and orientation changes.
 
-- name: Oak Visualizer
+- name: Oak
   url: https://github.com/kallotec/Oak
   image: /assets/images/projects/thumbs/oak.jpg
   tech: C#, ASP.NET MVC, Bootstrap, Typeahead, JointJS
@@ -46,7 +39,7 @@
   image: /assets/images/projects/thumbs/gh.png
   tech: C#, XAML
   desc: |
-        A simple, easy to use XAML table for displaying tabular data.
+        A simple, easy to use XAML table control for displaying tabular data. Configure columns and cell templates easily!
 
 - name: Tabata Max
   url: http://www.windowsphone.com/en-nz/store/app/tabata-max/b2b6c878-f99b-418a-bcae-a04bf0fd46e4
@@ -56,32 +49,11 @@
         Built to be the perfect companion for Tabata workouts (a form of high intensity interval training). The customizable exercise library with a configurable round timer and bell, plus exercise narration solves common issues faced during a workout such as forgetting the next exercise in a protocol.
 
 - name: NZTV Guide
-  url: http://nztv.klingdigital.net
+  url: http://nztv.kallotec.io
   image: /assets/images/projects/thumbs/nztv.png
-  tech: jQuery, ASP.NET WebAPI
+  tech: Elixir, Phoenix
   desc: |
         A simple and easy to use smartphone-friendly New Zealand TV guide website.
-
-- name: NZTV Guide (app prototype)
-  url: /assets/images/projects/nztv.app.png
-  image: /assets/images/projects/thumbs/nztv.png
-  tech: C#, XAML
-  desc: |
-        This is a Windows Phone version of my NZTV web application, but is implemented as a Hub-style user experience tailored for the Windows Phone. Integrates with IMDB's web api, for show information and thumbnails. The app has not been submitted to the store, but remains working and demonstrable.
-
-- name: Conway's Life simulator
-  url: /projects/gol
-  image: /assets/images/projects/thumbs/gol.png
-  tech: JS, Canvas
-  desc: |
-        The renound cellular automata, implemented in html5 canvas.
-
-- name: Mandelbrot Generator
-  url: http://klingdigital.net/mandelbrot.html
-  image: /assets/images/projects/thumbs/mandel.png
-  tech: JS, Canvas
-  desc: |
-        Fractal generation in html5 canvas!
 
 - name: Indie Gamer Lounge
   url: /assets/images/projects/igl.png
@@ -89,27 +61,6 @@
   tech: PHP, MySQL
   desc: |
         Some years back I built and ran an online community for gamers, designers and independent game developers alike to converse, collaborate, and create. I integrated forum software with my own mini CMS, and ran a community team. An immensely enjoyable experience.
-
-- name: Ballbreaker
-  url: /assets/images/projects/ballbreaker.png
-  image: /assets/images/projects/thumbs/bb.png
-  tech: C#, XNA
-  desc: |
-        Not just another breakout clone! The blocks reveal random images based on the mode selected, and the bricks morph colors.
-
-- name: Zomball
-  url: /assets/images/projects/zomball.png
-  image: /assets/images/projects/thumbs/zomball.png
-  tech: C#, XNA
-  desc: |
-        Wave-based, top-down, zombie shooter. Some of the technical achievements were zombie wandering AI, zombie sprite animation, and a blood decal system. To make the game challenging, not all zombies stayed dead and may re-animate.
-
-- name: Invoker
-  url: /assets/images/projects/invoker.png
-  image: /assets/images/projects/thumbs/invoker.png
-  tech: C#, XNA
-  desc: |
-        Wave-based, top-down, zombie shooter. Some of the technical achievements were zombie wandering AI, zombie sprite animation, and a blood decal system. To make the game challenging, not all zombies stayed dead and may re-animate.
 
 - name: Puppeteer
   url: /assets/images/projects/puppeteer.png

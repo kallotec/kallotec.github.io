@@ -5,80 +5,9 @@
     <description>Full stack software engineer</description>
     <link>http://kallotec.io/</link>
     <atom:link href="http://kallotec.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 30 Aug 2016 22:27:00 +1200</pubDate>
-    <lastBuildDate>Tue, 30 Aug 2016 22:27:00 +1200</lastBuildDate>
+    <pubDate>Tue, 14 Mar 2017 23:17:02 +1300</pubDate>
+    <lastBuildDate>Tue, 14 Mar 2017 23:17:02 +1300</lastBuildDate>
     <generator>Jekyll v3.0.0</generator>
-    
-      <item>
-        <title>Connascence</title>
-        <description>&lt;h1 id=&quot;code-camp&quot;&gt;Code Camp&lt;/h1&gt;
-
-&lt;p&gt;So I attended &lt;a href=&quot;http://codecampchristchurch.com&quot;&gt;Code Camp Christchurch&lt;/a&gt; over the weekend. The talks featured were excellent and certainly exceeded my expectations. I really was impressed by the wisdom imparted on the day. So much so that I wanted to distill and share one of the more valuable things I learned.&lt;/p&gt;
-
-&lt;p&gt;I went to &lt;a href=&quot;http://twitter.com/kiwipom&quot;&gt;Ian Randall&lt;/a&gt;s talk on how they do Continuous Delivery at &lt;a href=&quot;http://pushpay.com&quot;&gt;PushPay&lt;/a&gt;. While the talk was excellent in and of itself, the concept of &lt;strong&gt;Connascence&lt;/strong&gt; was dropped towards the end, without too much info other than emploring us to check it out, which I later did thankfully.&lt;/p&gt;
-
-&lt;h2 id=&quot;a-quest-to-write-better-code&quot;&gt;A quest to write better code&lt;/h2&gt;
-
-&lt;p&gt;I’ve learned a &lt;em&gt;lot&lt;/em&gt; of things over my career, but the only other time in when I learned something that actually helped me write better code was when I decided to take the time to understand SOLID properly.&lt;/p&gt;
-
-&lt;p&gt;SOLID provided me with an excellent tool/heuristic for making design decisions. Incidently, by applying SOLID, I actually found myself &lt;em&gt;accidently&lt;/em&gt; using existing design patterns. That was quite a breakthrough at the time.&lt;/p&gt;
-
-&lt;p&gt;But as I’ve found there’s still another missing peice in the puzzle. We have so much guidance in software design at a high level, but there’s nothing all that rigorous at the low level, guiding us with all the small but frequent, fine-grained coding decisions.&lt;/p&gt;
-
-&lt;p&gt;The concept of Connascence solves a lot of these problems, and for me has served as a second breakthrough in learning to write better code, and hopefully for you too!&lt;/p&gt;
-
-&lt;h2 id=&quot;connascence&quot;&gt;Connascence&lt;/h2&gt;
-
-&lt;p&gt;While &lt;a href=&quot;https://en.wikipedia.org/wiki/Connascence_%28computer_programming%29&quot;&gt;Wikipedia’s definition&lt;/a&gt; is great, I feel the following quote captures it a little more usefully.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Connascence is a way of describing the coupling between different parts of a codebase. And because it classifies the relative strength of that coupling, connascence can be used as a tool to help prioritise what should be refactored first.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Source: &lt;a href=&quot;https://silkandspinach.net/2015/01/22/connascence-of-value/&quot;&gt;https://silkandspinach.net/2015/01/22/connascence-of-value/&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Note that this isn’t just used retroactively, it’s all about making better design choices &lt;em&gt;while writing code&lt;/em&gt; as well.&lt;/p&gt;
-
-&lt;h3 id=&quot;the-video&quot;&gt;The video&lt;/h3&gt;
-
-&lt;p&gt;Probably the best value-for-time explanation I’ve found is the following video, presented by &lt;a href=&quot;http://twitter.com/josh_robb&quot;&gt;Josh Robb&lt;/a&gt; (also from PushPay).&lt;/p&gt;
-
-&lt;p&gt;Video: &lt;a href=&quot;https://www.youtube.com/watch?v=Ip2o4vbAK3s&quot;&gt;https://www.youtube.com/watch?v=Ip2o4vbAK3s&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;In addition to a great outline of Connascence and how it’s used, the video also hints at some of the shortcomings of existing principles such as SOLID and challenges the idea of pre-emptive abstraction and patterns, and sights Connascence as a simpler, more robust answer.&lt;/p&gt;
-
-&lt;p&gt;It’s well worth 30 minutes of your time.&lt;/p&gt;
-
-&lt;h3 id=&quot;the-printout&quot;&gt;The printout&lt;/h3&gt;
-
-&lt;p&gt;Like the concept and want a printout as a quick reference? I couldn’t find any I really liked on google images, so I drew one up.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;/assets/images/posts/connascence.jpg&quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;/assets/images/posts/connascence.jpg&quot; alt=&quot;Connascence reference&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;common-reaction-from-colleagues&quot;&gt;Common reaction from colleagues&lt;/h2&gt;
-
-&lt;h3 id=&quot;but-some-of-these-things-i-already-know-and-are-really-obvious&quot;&gt;“But some of these things I already know and are really obvious..?”&lt;/h3&gt;
-
-&lt;p&gt;For example, the 2 argument function vs the 8 argument function (Connascence of Position) and refactoring the arguments into its own class (Connascence of Name). This is a code smell any skilled developer will pick up on, and so what else is new apart from the awesome sounding names we can impress people at parties with?&lt;/p&gt;
-
-&lt;p&gt;What we’ve actually done is place these known code smells (obvious or not) inside a classification system.&lt;/p&gt;
-
-&lt;p&gt;Before, we knew it was bad, but not how bad, relative to other categories of smells (Connascences). But now, we can measure the risk of certain types of code effectively, and make much better decisions about what we do with it, and the icing on the cake is that we now have a path for improvement - by refactoring the code toward better Connascences.&lt;/p&gt;
-
-&lt;h2 id=&quot;why-isnt-this-as-common-as-solid&quot;&gt;Why isn’t this as common as SOLID?&lt;/h2&gt;
-
-&lt;p&gt;My theory is that around the time the concept was conceived, perhaps code wasn’t as complex and omnipresent as it is now, it was perhaps conceived too early for it’s time. Interested to hear other oppinions..&lt;/p&gt;
-
-&lt;h2 id=&quot;further-reading&quot;&gt;Further reading&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://Connascence.io&quot;&gt;http://Connascence.io&lt;/a&gt; - Great next step, loads of concrete examples.&lt;/p&gt;
-</description>
-        <pubDate>Fri, 24 Jun 2016 10:50:50 +1200</pubDate>
-        <link>http://kallotec.io/2016/06/24/connascence.html</link>
-        <guid isPermaLink="true">http://kallotec.io/2016/06/24/connascence.html</guid>
-        
-        
-      </item>
     
       <item>
         <title>A guide to completing side projects</title>
