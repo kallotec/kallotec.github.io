@@ -5,41 +5,41 @@
   desc: |
         Christchurch based startup aiming to enhance party-goers night out through a location-based marketing platform and a new smartphone app.
 
-- name: SPACEPANTS
+- name: Spacepants
   url: http://ludumdare.com/compo/ludum-dare-35/?action=preview&uid=54338
   image:
   tech: C#, Unity3D
   desc: |
         Competition entry for Ludum Dare #35, the 72 hour game development competition. The official theme was "ShapeShift", but I went with a runner-up theme of "Limited Resources". Timelapse coming soon.
 
-- name: GMTM
-  url: /assets/images/projects/gmtm.png
-  image: /assets/images/projects/thumbs/gmtm.png
-  tech: C#, ASP.NET MVC, WebAPI, Boostrap
-  desc: |
-        An online event coordination platform aimed at gamers, addressing the common problem of coordinating groups of players in different timezones.
-        Users can create their own events and follow friends and public figures. Gmtm open beta concluded, project shelved.
+#- name: GMTM
+#  url: /assets/images/projects/gmtm.png
+#  image: /assets/images/projects/thumbs/gmtm.png
+#  tech: C#, ASP.NET MVC, WebAPI, Boostrap
+#  desc: |
+#        An online event coordination platform aimed at gamers, addressing the common problem of coordinating groups of players in different timezones.
+#        Users can create their own events and follow friends and public figures. Gmtm open beta concluded, project shelved.
 
-- name: XAML Responsive Styles
-  url: https://github.com/kallotec/XAMLResponsiveStyles
-  image: /assets/images/projects/thumbs/gh.png
-  tech: C#, XAML
-  desc: |
-        A concept for a XAML equivelent implementation of CSS media queries, to enable simple stylesheet switching mechanisms based on frame size and orientation changes.
+#- name: XAML Responsive Styles
+#  url: https://github.com/kallotec/XAMLResponsiveStyles
+#  image: /assets/images/projects/thumbs/gh.png
+#  tech: C#, XAML
+#  desc: |
+#        A concept for a XAML equivelent implementation of CSS media queries, to enable simple stylesheet switching mechanisms based on frame size and orientation changes.
 
-- name: Oak
-  url: https://github.com/kallotec/Oak
-  image: /assets/images/projects/thumbs/oak.jpg
-  tech: C#, ASP.NET MVC, Bootstrap, Typeahead, JointJS
-  desc: |
-        User-friendly and searchable SQL database object dependency visualizer. Built to speed up database object analysis.
+#- name: Oak
+#  url: https://github.com/kallotec/Oak
+#  image: /assets/images/projects/thumbs/oak.jpg
+#  tech: C#, ASP.NET MVC, Bootstrap, Typeahead, JointJS
+#  desc: |
+#        User-friendly and searchable SQL database object dependency visualizer. Built to speed up database object analysis.
 
-- name: XAML SimpleTable
-  url: https://github.com/kallotec/XAMLSimpleTable
-  image: /assets/images/projects/thumbs/gh.png
-  tech: C#, XAML
-  desc: |
-        A simple, easy to use XAML table control for displaying tabular data. Configure columns and cell templates easily!
+#- name: XAML SimpleTable
+#  url: https://github.com/kallotec/XAMLSimpleTable
+#  image: /assets/images/projects/thumbs/gh.png
+#  tech: C#, XAML
+#  desc: |
+#        A simple, easy to use XAML table control for displaying tabular data. Configure columns and cell templates easily!
 
 - name: Tabata Max
   url: http://www.windowsphone.com/en-nz/store/app/tabata-max/b2b6c878-f99b-418a-bcae-a04bf0fd46e4
@@ -55,16 +55,16 @@
   desc: |
         A simple and easy to use smartphone-friendly New Zealand TV guide website.
 
-- name: Indie Gamer Lounge
-  url: /assets/images/projects/igl.png
-  image: /assets/images/projects/thumbs/igl.png
-  tech: PHP, MySQL
-  desc: |
-        Some years back I built and ran an online community for gamers, designers and independent game developers alike to converse, collaborate, and create. I integrated forum software with my own mini CMS, and ran a community team. An immensely enjoyable experience.
+#- name: Indie Gamer Lounge
+#  url: /assets/images/projects/igl.png
+#  image: /assets/images/projects/thumbs/igl.png
+#  tech: PHP, MySQL
+#  desc: |
+#        Some years back I built and ran an online community for gamers, designers and independent game developers alike to converse, collaborate, and create. I integrated forum software with my own mini CMS, and ran a community team. An immensely enjoyable experience.
 
-- name: Puppeteer
-  url: /assets/images/projects/puppeteer.png
-  image: /assets/images/projects/thumbs/puppeteer.png
-  tech: C#, WinForms
-  desc: |
-        Old project from back in the early days, it occured to me the idea of using reflection to create an automated testing tool for developers that ran tests on managed DLLs without users writing a single line of code(!), the result was Puppeteer. Best suited for procedural libraries with simple input and output methods. Generates UI for constructor instantiation and method arguments, saves test projects as files, tracks coverage, and generates run reports.
+#- name: Puppeteer
+#  url: /assets/images/projects/puppeteer.png
+#  image: /assets/images/projects/thumbs/puppeteer.png
+#  tech: C#, WinForms
+#  desc: |
+#        Old project from back in the early days, it occured to me the idea of using reflection to create an automated testing tool for developers that ran tests on managed DLLs without users writing a single line of code(!), the result was Puppeteer. Best suited for procedural libraries with simple input and output methods. Generates UI for constructor instantiation and method arguments, saves test projects as files, tracks coverage, and generates run reports.
