@@ -123,6 +123,12 @@ h3 small {
   opacity: .8;
 }
 
+.social-bar-small img {
+  width: 20px;
+  /*margin: 0 2px;*/
+  opacity: .8;
+}
+
 .page-header-splash .social-bar {
   padding: 20px 0 0;
 }
