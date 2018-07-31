@@ -92,16 +92,6 @@ To get more insight, you can try contacting current or past-employers, LinkedIn 
 
 Glassdoor and other employer reviewing websites can also help to shed some light into the company culture. Although beware that these sites tend to be represented mainly by disgruntled former employees, and may not reflect the company today.
 
-### Still arn't sure about them?
-
-Talk about the interview to an experienced friend or mentor.
-
-If you're not sure, either you didn't ask enough questions, do enough research, or you're subconciously detecting something bad.
-
-### If you get turned down
-
-Ask for feedback about your performance and why they turned you down, an interview is a good opportunity to find out what you need to work on. Take it as a humble learning opportunity. But also don't be suprised if you don't hear back again, it's pretty common.
-
 ### Still anxious about the meeting?
 
 It's just a chat.
@@ -120,6 +110,16 @@ It's easy to pick up on a lie in an interview.
 
 If you don't know something, be honest that you don't know. But also say how you would go about learning it if the job requried. Bonus points if you can provide an example of when you didn't know something in a past situation and how you came to learn and use it.
 
+### Still arn't sure about them?
+
+Talk about the interview to an experienced friend or mentor.
+
+If you're not sure, either you didn't ask enough questions, do enough research, or you're subconciously detecting something bad.
+
 ### Offers
 
 Try to get offers from more than one employer. Having a second offer to accept can really be a lifesaver if you resign from your current job and the first offer you accepted gets rescinded (this happened to me).
+
+### If you get turned down
+
+Ask for feedback about your performance and why they turned you down, an interview is a good opportunity to find out what you need to work on. Take it as a humble learning opportunity. But also don't be suprised if you don't hear back again, it's pretty common.
