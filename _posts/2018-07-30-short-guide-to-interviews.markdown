@@ -5,13 +5,13 @@ date:   2018-07-30 11:00:00 +1300
 categories: interviews
 ---
 
-## Interview order and offers
+### Interview order and offers
 
 Interviews are obligation-free with nothing to lose. Set up interviews at multiple places, not just the one place you want to get a job at. More interviews means more practice, and also some of the places might turn out to be way better than you initially thought.
 
 Pro tip: if, say, you apply at 3 different places, interview at the place you like the least first and work through them from worst to best order, so that by the time you get to the interview for the place you like the most, you're well practiced.
 
-## Setting a meeting time
+### Setting a meeting time
 
 Someone from the company will call to organize interview times.
 
@@ -21,7 +21,7 @@ Mornings interviews are hard unless you're a morning person, because you're stil
 
 Early afternoon (1pm,2pm) seems to be the most ideal times to kindly request.
 
-## What to rehearse
+### What to rehearse
 
 There's a few things worth rehearsing which will help in recalling later.
 
@@ -43,13 +43,13 @@ This helps prevent feeling off-guard and panic'y, and helps better organize your
 
 If they ask any of these, remember that they normally aren't trying to "catch you out", they most likely have no idea what to ask and simply Googled the same stuff as above.
 
-## Don't worry about techniques/strategies
+### Don't worry about techniques/strategies
 
 Don't cram your brain with interview techniques and strategies. It is counter-productive because the more you're trying to remember on the day, the more stress is created. And stress leads to memory blanks and awkwardness.
 
 It makes more sense to depend on what you know best, which is being yourself who you've had experience being your whole life, rather than depending on techniques/strategies you've had experience with for a week or so.
 
-## The only thing you should actually worry about
+### The only thing you should actually worry about
 
 Is getting a job that you'll hate.
 
@@ -61,7 +61,7 @@ You can do this through questions of your own, whether you get on well or not in
 
 Be glad about the bad interviews, as it makes it obvious they arn't a good match for you. Which is way better to learn BEFORE being hired by them.
 
-## Write a list of questions
+### Write a list of questions
 
 Define for yourself what an ideal job looks like, as well as what a job you'd hate looks like. Then imagine yourself working in the role you're applying for and all the different situations you might encounter and tasks you might do, and write down as many questions or concerns that you could ask about that would provide clues as to whether you'd love it or hate it.
 
@@ -75,7 +75,7 @@ Having that list there with you also helps re-enforce to you that the meeting is
 
 When to ask questions depends on how they want to structure the chat, most interviewers like to ask all their questions first, and they'll let you ask yours after that if you have any. Other times it can be like a normal back-and-forth type of conversation where it doesn't matter when you ask. Just roll with whatever style they seem to be going with.
 
-## Employer red flags
+### Employer red flags
 
 Some example red flags that likely indicate a bad employer during the interview:
 
@@ -86,23 +86,23 @@ Some example red flags that likely indicate a bad employer during the interview:
 - They give you the feeling like you're not trustworthy, and they're trying to catch you out
 - They're elitist, deminish your accomplishments
 
-## Other means of insight
+### Other means of insight
 
 To get more insight, you can try contacting current or past-employers, LinkedIn is great for finding these people. Try to talk to people in a similar role to the one you're applying for. Low level employees that havn't worked there for too long (maybe 1 year) are another option to talk to, as they won't have drunk the cool-aid yet. You won't get any useful information from someone who has worked there for a long time, because if the environment is terrible and they've stuck around for 10 years then they must think it's normal.
 
 Glassdoor and other employer reviewing websites can also help to shed some light into the company culture. Although beware that these sites tend to be represented mainly by disgruntled former employees, and may not reflect the company today.
 
-## Still arn't sure about them?
+### Still arn't sure about them?
 
 Talk about the interview to an experienced friend or mentor.
 
 If you're not sure, either you didn't ask enough questions, do enough research, or you're subconciously detecting something bad.
 
-## If you get turned down
+### If you get turned down
 
 Ask for feedback about your performance and why they turned you down, an interview is a good opportunity to find out what you need to work on. Take it as a humble learning opportunity. But also don't be suprised if you don't hear back again, it's pretty common.
 
-## Still anxious about the meeting?
+### Still anxious about the meeting?
 
 It can help to remind yourself what they actually are: two people getting to know each other, asking questions about each other's work. Then both people going away to have a think, and then deciding whether they'd like to work together, and then seeing if the other agrees. That's all it is.
 
@@ -114,12 +114,12 @@ Humor helps: I like to think of it like you're dating this new company to see if
 
 It's just a chat.
 
-## Honesty
+### Honesty
 
 It's easy to pick up on a lie in an interview.
 
 If you don't know something, be honest that you don't know. But also say how you would go about learning it if the job requried. Bonus points if you can provide an example of when you didn't know something in a past situation and how you came to learn and use it.
 
-## Offers
+### Offers
 
 Try to get offers from more than one employer. Having a second offer to accept can really be a lifesaver if you resign from your current job and the first offer you accepted gets rescinded (this happened to me).
