@@ -61,23 +61,23 @@ You can do this through questions of your own, whether you get on well or not in
 
 Be glad about the bad interviews, as it makes it obvious they arn't a good match for you. Which is way better to learn BEFORE being hired by them.
 
-Also know that sometimes bad interviews happen regardless, it's normal.
-
 ## Write a list of questions
 
 Define for yourself what an ideal job looks like, as well as what a job you'd hate looks like. Then imagine yourself working in the role you're applying for and all the different situations you might encounter and tasks you might do, and write down as many questions or concerns that you could ask about that would provide clues as to whether you'd love it or hate it.
 
+Some examples are: asking them about their culture, what they think the biggest challenge for new employees would be, how they handle deadlines, how they learn from their mistakes, how they learn and improve from their mistakes, etc. Pay attention to the way they answer the questions as they can reveal red flags. Get creative with the questioning.
+
 Order them so that the most important questions are at the top, so that if time is short then you can at least ask the most important questions that'll affect your decision first.
 
-Take the list of questions to the meeting. This shows organization, and also means you'll never have the situation of getting home after it and thinking "oh sh*t I forgot to ask about X and Y".
+Take the list of questions to the meeting. This shows organization, and also means you'll never have the situation of getting home after it and thinking "oh shit I forgot to ask about X and Y".
 
-Having that list there with you also helps re-enforce to you that the meeting isn't all about them, it's a two-way street.
+Having that list there with you also helps re-enforce to you that the meeting isn't all about them, it's a two-way street, which will relieve some pressure from you.
 
 When to ask questions depends on how they want to structure the chat, most interviewers like to ask all their questions first, and they'll let you ask yours after that if you have any. Other times it can be like a normal back-and-forth type of conversation where it doesn't matter when you ask. Just roll with whatever style they seem to be going with.
 
 ## Employer red flags
 
-Some example red flags that likely indicate a bad employer.
+Some example red flags that likely indicate a bad employer during the interview:
 
 - They don't seem to want to be there
 - They arn't interested in what you do outside of work
@@ -86,25 +86,33 @@ Some example red flags that likely indicate a bad employer.
 - They give you the feeling like you're not trustworthy, and they're trying to catch you out
 - They're elitist, deminish your accomplishments
 
-## [WIP] Dont know if theyre good or not?
+## Other means of insight
 
-Ask an experienced friend or mentor
+To get more insight, you can try contacting current or past-employers, LinkedIn is great for finding these people. Try to talk to people in a similar role to the one you're applying for. Low level employees that havn't worked there for too long (maybe 1 year) are another option to talk to, as they won't have drunk the cool-aid yet. You won't get any useful information from someone who has worked there for a long time, because if the environment is terrible and they've stuck around for 10 years then they must think it's normal.
 
-## [WIP] Ask follow up questions if turned down
+Glassdoor and other employer reviewing websites can also help to shed some light into the company culture. Although beware that these sites tend to be represented mainly by disgruntled former employees, and may not reflect the company today.
 
-## [WIP] Still anxious?
+## Still arn't sure about them?
+
+Talk about the interview to an experienced friend or mentor.
+
+If you're not sure, either you didn't ask enough questions, do enough research, or you're subconciously detecting something bad.
+
+## If you get turned down
+
+Ask for feedback about your performance and why they turned you down, an interview is a good opportunity to find out what you need to work on. Take it as a humble learning opportunity. But also don't be suprised if you don't hear back again, it's pretty common.
+
+## Still anxious about the meeting?
 
 It can help to remind yourself what they actually are: two people getting to know each other, asking questions about each other's work. Then both people going away to have a think, and then deciding whether they'd like to work together, and then seeing if the other agrees. That's all it is.
 
 There are zero risks or stakes: if either one of you decides to not continue, then you can happily continue on with your lives. If you say something dumb, then it doesn't matter because you'll probably never see them again. If you decide, after meeting, that you don't like the sound of it, there's no obligation to continue.
 
-It's not really that different from when you meet someone new at a party. You are talking to them to see if you'll get along and they're doing the same. You might become good friends or you might not, not everyone in the world matches every other. Humor helps: I like to think of it like you're dating this new company to see if you both want to commit to moving in with each other.
+It's not really that different from when you meet someone new at a party. You're talking to them to see if you'll get along and they're doing the same. You might become good friends or you might not, not everyone in the world matches every other. 
 
-## Other means of insight
+Humor helps: I like to think of it like you're dating this new company to see if you both want to commit to moving in with each other.
 
-Contact current or past-employers, LinkedIn is great for finding these people. Try to talk to people in a similar role to the one you're applying for. Low level employees that havn't worked there for too long are another option to talk to, as they won't have drunk the cool-aid yet. You won't get any useful information from someone who has worked there for a long time, because if the environment is terrible and they've stuck around for 10 years then they must think it's normal.
-
-Glassdoor and other employer reviewing websites can also help to shed some light into the company culture. Although beware that these sites tend to be represented mainly by disgruntled former employees, and may not reflect the company today.
+It's just a chat.
 
 ## Honesty
 
