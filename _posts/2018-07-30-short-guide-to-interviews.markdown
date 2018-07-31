@@ -104,15 +104,15 @@ Ask for feedback about your performance and why they turned you down, an intervi
 
 ### Still anxious about the meeting?
 
+It's just a chat.
+
 It can help to remind yourself what they actually are: two people getting to know each other, asking questions about each other's work. Then both people going away to have a think, and then deciding whether they'd like to work together, and then seeing if the other agrees. That's all it is.
 
 There are zero risks or stakes: if either one of you decides to not continue, then you can happily continue on with your lives. If you say something dumb, then it doesn't matter because you'll probably never see them again. If you decide, after meeting, that you don't like the sound of it, there's no obligation to continue.
 
-It's not really that different from when you meet someone new at a party. You're talking to them to see if you'll get along and they're doing the same. You might become good friends or you might not, not everyone in the world matches every other. 
+It's not really that different from when you meet someone new at a party. You're talking to them to see if you'll get along and they're doing the same. You might become friends or you might not, not everyone in the world matches every other. 
 
-Humor helps: I like to think of it like you're dating this new company to see if you both want to commit to moving in with each other.
-
-It's just a chat.
+I like to think of it like you're dating this new company to see if you both want to commit to moving in with each other.
 
 ### Honesty
 
