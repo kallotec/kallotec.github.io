@@ -32,6 +32,7 @@ Rehearse common interview questions with a spouse or friend.
 Google "common interview questions".
 
 Here are a few non-industry specific examples:
+
 - "why did you apply for this role?"
 - "why do you think I should hire you?"
 - "give me an example of a challenge you faced and how you overcame it?"
@@ -65,7 +66,7 @@ Be glad about the bad interviews, as it makes it obvious they arn't a good match
 
 Define for yourself what an ideal job looks like, as well as what a job you'd hate looks like. Then imagine yourself working in the role you're applying for and all the different situations you might encounter and tasks you might do, and write down as many questions or concerns that you could ask about that would provide clues as to whether you'd love it or hate it.
 
-Some examples are: asking them about their culture, what they think the biggest challenge for new employees would be, how they handle deadlines, how they learn from their mistakes, how they learn and improve from their mistakes, etc. Pay attention to the way they answer the questions as they can reveal red flags. Get creative with the questioning.
+Some examples are: asking them about their culture, what they think the biggest challenge for new employees would be, how they handled their last deadline, what are their improvement processes, what's their turnover rate like, what's the main reason people might leave etc. Pay attention to the way they answer the questions as they can reveal red flags. Get creative with the questioning!
 
 Order them so that the most important questions are at the top, so that if time is short then you can at least ask the most important questions that'll affect your decision first.
 
@@ -75,15 +76,16 @@ Having that list there with you also helps re-enforce to you that the meeting is
 
 When to ask questions depends on how they want to structure the chat, most interviewers like to ask all their questions first, and they'll let you ask yours after that if you have any. Other times it can be like a normal back-and-forth type of conversation where it doesn't matter when you ask. Just roll with whatever style they seem to be going with.
 
-### Employer red flags
+### Example red flags
 
-Some example red flags that likely indicate a bad employer during the interview:
+Some example red flags that *could* indicate a bad employer during the interview:
 
 - They don't seem to want to be there
 - They arn't interested in what you do outside of work
 - They don't really care about your career goals
 - They're way more interested talking about themselves
 - They're either annoyed or disinterested in your questions
+- They give vague answers, get defensive or avoid answering your questions
 - They give you the feeling like you're not trustworthy, and they're trying to catch you out
 - They're elitist, deminish your accomplishments
 
@@ -125,4 +127,4 @@ Try to get offers from more than one employer. Having a second offer to accept c
 
 Take it as a humble learning opportunity. 
 
-Try to request feedback about your performance and why they turned you down, an interview is a good opportunity to find out what you need to work on. Note what you struggled to answer in the interview as well, and work on that too. Don't be suprised if you don't hear back though, it's pretty common for HR/recruiters to cease communications when you're no longer a candidate.
+Try to request feedback about your performance and why they turned you down, an interview is a good opportunity to find out what you need to work on. Note what you struggled to answer in the interview as well, and work on that too. Don't be suprised if you don't hear back though, it's pretty common for HR/recruiters to cease communications when you're no longer a candidate, for that reason.
