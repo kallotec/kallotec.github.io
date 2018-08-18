@@ -9,7 +9,7 @@ categories: interviews
 
 Interviews are obligation-free with nothing to lose. Set up interviews at multiple places, not just the one place you want to get a job at. More interviews means more practice, and also some of the places might turn out to be way better than you initially thought.
 
-Pro tip: if, say, you apply at 3 different places, interview at the place you like the least first and work through them from worst to best order, so that by the time you get to the interview for the place you like the most, you're well practiced.
+If, say, you apply at 3 different places, interview at the place you like the least first and work through them from worst to best order, so that by the time you get to the interview for the place you like the most, you're well practiced.
 
 ### Setting a meeting time
 
@@ -39,7 +39,7 @@ Here are a few non-industry specific examples:
 
 Then search and rehearse a bunch of industry specific ones relating to the role you're applying for. For example "common programming interview questions".
 
-This helps prevent feeling off-guard and panic'y, and helps better organize your thoughts and feel more confident on the day.
+This helps prevent feeling off-guard and panic'y for the curve balls, and helps better organize your thoughts and feel more confident on the day.
 
 If they ask any of these, remember that they normally aren't trying to "catch you out", they most likely have no idea what to ask and simply Googled the same stuff as above.
 
@@ -82,6 +82,7 @@ Some example red flags that likely indicate a bad employer during the interview:
 - They don't seem to want to be there
 - They arn't interested in what you do outside of work
 - They don't really care about your career goals
+- They're way more interested talking about themselves
 - They're either annoyed or disinterested in your questions
 - They give you the feeling like you're not trustworthy, and they're trying to catch you out
 - They're elitist, deminish your accomplishments
@@ -112,9 +113,9 @@ If you don't know something, be honest that you don't know. But also say how you
 
 ### Still arn't sure about them?
 
-Talk about the interview to an experienced friend or mentor.
+If after the interview you're not sure, then either you didn't ask enough questions, do enough research, or you're subconciously detecting something toxic.
 
-If you're not sure, either you didn't ask enough questions, do enough research, or you're subconciously detecting something bad.
+Get some advice from an experienced friend or colleague.
 
 ### Offers
 
@@ -122,4 +123,6 @@ Try to get offers from more than one employer. Having a second offer to accept c
 
 ### If you get turned down
 
-Ask for feedback about your performance and why they turned you down, an interview is a good opportunity to find out what you need to work on. Take it as a humble learning opportunity. But also don't be suprised if you don't hear back again, it's pretty common.
+Take it as a humble learning opportunity. 
+
+Try to request feedback about your performance and why they turned you down, an interview is a good opportunity to find out what you need to work on. Note what you struggled to answer in the interview as well, and work on that too. Don't be suprised if you don't hear back though, it's pretty common for HR/recruiters to cease communications when you're no longer a candidate.
