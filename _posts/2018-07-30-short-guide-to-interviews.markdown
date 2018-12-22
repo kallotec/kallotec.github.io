@@ -91,13 +91,11 @@ Some example red flags that *could* indicate a bad employer during the interview
 
 ### Other means of insight
 
-To get more insight, you can try contacting current or past-employers, LinkedIn is great for finding these people. Try to talk to people in a similar role to the one you're applying for. Low level employees that havn't worked there for too long (maybe 1 year) are another option to talk to, as they won't have drunk the cool-aid yet. You won't get any useful information from someone who has worked there for a long time, because if the environment is terrible and they've stuck around for 10 years then they must think it's normal.
+To get more insight, you can try contacting current or past-employees of the company, LinkedIn is great for finding these people. Try to talk to people in a similar role to the one you're applying for. Low level employees that havn't worked there for too long (maybe 1 year) are another option to talk to, as they won't have drunk the cool-aid yet. You won't get any useful information from someone who has worked there for a long time, because if the environment is terrible and they've stuck around for 5 years then they must think it's normal.
 
 Glassdoor and other employer reviewing websites can also help to shed some light into the company culture. Although beware that these sites tend to be represented mainly by disgruntled former employees, and may not reflect the company today.
 
-### Still anxious about the meeting?
-
-It's just a chat.
+### It's just a chat.
 
 It can help to remind yourself what they actually are: two people getting to know each other, asking questions about each other's work. Then both people going away to have a think, and then deciding whether they'd like to work together, and then seeing if the other agrees. That's all it is.
 
