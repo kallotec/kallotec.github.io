@@ -27,7 +27,7 @@ There's a few things worth rehearsing which will help in recalling later.
 
 Reflect over your careers trials and triumphs, practice telling your career story.
 
-Rehearse common interview questions with a spouse or friend.
+Rehearse common interview questions with yourself, or a spouse or friend. Whatever feels comfortable.
 
 Google "common interview questions".
 
@@ -115,7 +115,7 @@ If you don't know something, be honest that you don't know. But also say how you
 
 If after the interview you're not sure, then either you didn't ask enough questions, do enough research, or you're subconciously detecting something toxic.
 
-Get some advice from an experienced friend or colleague.
+Ask an experienced friend or colleague what they thinkg.
 
 ### Offers
 
